@@ -61,7 +61,7 @@ export default function Hero() {
         <div ref={badgeRef} className="mb-6">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-400 tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" aria-hidden="true" />
-            AI-Augmented Enterprise Development
+            AI + Human Product Development
           </span>
         </div>
 
@@ -70,9 +70,9 @@ export default function Hero() {
           ref={headlineRef}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-6"
         >
-          Ship Beautiful{' '}
+          Build Better{' '}
           <br className="hidden sm:block" />
-          <span className="text-gradient">Products. Faster.</span>
+          <span className="text-gradient">Products, Iteratively.</span>
         </h1>
 
         {/* Subtext */}
@@ -82,9 +82,9 @@ export default function Hero() {
         >
           CheeseCake Labs fuses{' '}
           <span className="text-cream font-medium">AI agents</span> with{' '}
-          <span className="text-cream font-medium">elite human developers</span> to
-          deliver next-generation frontend and app development for enterprises — with
-          obsessive attention to detail.
+          <span className="text-cream font-medium">senior human developers</span> to
+          deliver frontend and app development for enterprise teams — with
+          careful attention to detail.
         </p>
 
         {/* CTAs */}
@@ -93,7 +93,7 @@ export default function Hero() {
             onClick={() => scrollTo('#contact')}
             className="px-6 py-3.5 rounded-xl font-semibold text-sm bg-amber-500 text-[#0a0a0f] hover:bg-amber-400 transition-all duration-200 shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:-translate-y-0.5 min-w-[160px]"
           >
-            Start a Project
+            Reach Out
           </button>
           <button
             onClick={() => scrollTo('#how-it-works')}
@@ -106,7 +106,7 @@ export default function Hero() {
         {/* Trust strip */}
         <div className="mt-16 flex flex-col items-center gap-4">
           <p className="text-xs text-cream-muted tracking-widest uppercase">
-            Trusted by engineering teams at
+            Trusted by product teams at
           </p>
           <div className="flex items-center gap-6 sm:gap-10 opacity-40 flex-wrap justify-center">
             {['Fortune 500', 'Series B+', 'Enterprise', 'Scale-ups'].map((label) => (

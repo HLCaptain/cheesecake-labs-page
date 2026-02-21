@@ -6,7 +6,12 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function NavBar() {
+interface NavBarProps {
+  theme: 'dark' | 'light'
+  onToggleTheme: () => void
+}
+
+export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -70,6 +75,14 @@ export default function NavBar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="px-3 py-2 text-sm font-medium rounded-lg border border-white/10 bg-white/5 text-cream-muted hover:text-cream hover:bg-white/10 transition-colors duration-200"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          </button>
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, '#contact')}
@@ -110,6 +123,15 @@ export default function NavBar() {
               </a>
             </li>
           ))}
+          <li>
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              className="inline-block px-4 py-2 text-sm font-medium rounded-lg border border-white/10 bg-white/5 text-cream-muted hover:text-cream hover:bg-white/10 transition-colors duration-200 mt-2"
+            >
+              {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            </button>
+          </li>
           <li>
             <a
               href="#contact"

@@ -18,14 +18,14 @@ const steps: Step[] = [
   {
     number: '02',
     title: 'AI-Augmented Planning',
-    description: 'Architect at machine speed',
+    description: 'Plan with practical speed',
     detail:
       'Our AI agents accelerate architecture design, component planning, and technical documentation. What typically takes weeks of back-and-forth is condensed into days of precise, actionable roadmaps.',
   },
   {
     number: '03',
     title: 'Expert Development',
-    description: 'Elite developers, no compromises',
+    description: 'Experienced developers, thoughtful delivery',
     detail:
       'Senior human developers execute the build with surgical precision — pixel-perfect UI, clean architecture, and thorough code reviews. AI handles the repetitive heavy lifting so your team can focus on uniqueness.',
   },
@@ -77,8 +77,8 @@ export default function HowItWorks() {
             How it <span className="text-gradient">works</span>
           </h2>
           <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-cream-muted text-lg leading-relaxed">
-            A streamlined engagement model designed for enterprise speed and
-            accountability — from first call to first deploy.
+            A streamlined engagement model for enterprise teams that need
+            consistent delivery — from first call to first deploy.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export default function HowItWorks() {
                   {/* Content */}
                   <div className={`w-full lg:w-[calc(50%-3rem)] ${isLeft ? 'lg:pr-12 lg:text-right' : 'lg:pl-12'}`}>
                     <div
-                      className={`group p-7 rounded-2xl border border-white/5 bg-[#111118] hover:bg-[#1a1a24] hover:border-amber-500/15 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-amber-500/5`}
+                        className={`group p-7 rounded-2xl border border-white/5 bg-[#111118] hover:bg-[#1a1a24] hover:border-amber-500/15 transition-colors duration-200`}
                     >
                       <span className="inline-block text-[11px] font-bold text-amber-500 tracking-widest uppercase mb-2">
                         Step {step.number}

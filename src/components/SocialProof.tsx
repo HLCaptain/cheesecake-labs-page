@@ -8,9 +8,9 @@ interface Stat {
 
 const stats: Stat[] = [
   {
-    value: '10x',
-    label: 'Faster Delivery',
-    description: 'Compared to traditional outsourcing agencies',
+    value: 'Shorter',
+    label: 'Delivery Cycles',
+    description: 'Compared with traditional outsourcing handoffs',
   },
   {
     value: '50+',
@@ -18,15 +18,15 @@ const stats: Stat[] = [
     description: 'Shipped for Fortune 500 and Series B+ companies',
   },
   {
-    value: '99%',
-    label: 'Satisfaction Rate',
-    description: 'Client retention across long-term engagements',
+    value: 'Long-term',
+    label: 'Partnerships',
+    description: 'Many engagements continue across multiple roadmap phases',
   },
 ]
 
 const testimonial = {
   quote:
-    '"CheeseCake Labs completely transformed our product iteration speed. What used to take us 3 months now ships in under 3 weeks — and the quality is unmatched."',
+    '"CheeseCake Labs helped us ship with more rhythm. We moved from long release cycles to steady weekly progress, while keeping quality high."',
   author: 'VP of Engineering',
   company: 'Global FinTech Enterprise',
 }
@@ -66,13 +66,12 @@ export default function SocialProof() {
             </span>
           </div>
           <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight text-cream mb-4">
-            Built for enterprises that{' '}
-            <span className="text-gradient">move at startup speed</span>
+            Built for enterprises that need{' '}
+            <span className="text-gradient">steady momentum</span>
           </h2>
           <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-cream-muted text-lg leading-relaxed">
             Our clients are large-scale businesses that demand quality,
-            reliability, and exceptional delivery — without the bloat of
-            traditional consulting.
+            reliability, and focused execution without unnecessary process.
           </p>
         </div>
 
@@ -83,7 +82,7 @@ export default function SocialProof() {
             return (
               <div
                 key={stat.label}
-                className={`animate-on-scroll ${delayClass} relative p-8 rounded-2xl border border-white/5 bg-[#111118] text-center group hover:border-amber-500/20 hover:bg-[#1a1a24] transition-all duration-300`}
+                className={`animate-on-scroll ${delayClass} relative p-8 rounded-2xl border border-white/5 bg-[#111118] text-center group hover:border-amber-500/20 hover:bg-[#1a1a24] transition-colors duration-200`}
               >
                 <div className="text-5xl font-black text-gradient mb-2">{stat.value}</div>
                 <div className="text-base font-semibold text-cream mb-2">{stat.label}</div>
