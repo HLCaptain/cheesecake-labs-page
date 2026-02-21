@@ -1,10 +1,19 @@
 import { useCallback, useEffect, useRef } from 'react'
 
-export default function Hero() {
+interface HeroProps {
+  theme: 'dark' | 'light'
+}
+
+export default function Hero({ theme }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mouse = useRef({ x: -1, y: -1 })
   const rafId = useRef<number>(0)
+  const themeRef = useRef(theme)
+
+  useEffect(() => {
+    themeRef.current = theme
+  }, [theme])
 
   /* Interactive dot grid rendered on <canvas> */
   useEffect(() => {
@@ -20,6 +29,12 @@ export default function Hero() {
     const MAX_RADIUS = 3
     const INFLUENCE = 150
 
+    const getThemeColors = () => {
+      return themeRef.current === 'dark' 
+        ? { color: [245, 158, 11] as [number, number, number], baseAlpha: 0.2 }
+        : { color: [31, 41, 55] as [number, number, number], baseAlpha: 0.5 }
+    }
+
     const resize = () => {
       const dpr = window.devicePixelRatio || 1
       const rect = section.getBoundingClientRect()
@@ -31,6 +46,7 @@ export default function Hero() {
     }
 
     const draw = () => {
+      const { color: dotColor, baseAlpha: initAlpha } = getThemeColors()
       const w = canvas.width / (window.devicePixelRatio || 1)
       const h = canvas.height / (window.devicePixelRatio || 1)
       ctx.clearRect(0, 0, w, h)
@@ -41,20 +57,20 @@ export default function Hero() {
       for (let x = GAP; x < w; x += GAP) {
         for (let y = GAP; y < h; y += GAP) {
           let radius = BASE_RADIUS
-          let alpha = 0.12
+          let alpha = initAlpha
 
           if (mx >= 0 && my >= 0) {
             const dist = Math.hypot(x - mx, y - my)
             if (dist < INFLUENCE) {
               const t = 1 - dist / INFLUENCE
               radius = BASE_RADIUS + (MAX_RADIUS - BASE_RADIUS) * t
-              alpha = 0.12 + 0.55 * t
+              alpha = initAlpha + 0.55 * t
             }
           }
 
           ctx.beginPath()
           ctx.arc(x, y, radius, 0, Math.PI * 2)
-          ctx.fillStyle = `rgba(245,158,11,${alpha})`
+          ctx.fillStyle = `rgba(${dotColor[0]},${dotColor[1]},${dotColor[2]},${alpha})`
           ctx.fill()
         }
       }
