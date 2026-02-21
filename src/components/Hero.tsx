@@ -1,7 +1,39 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
+  const orbRef = useRef<HTMLDivElement>(null)
+  const mouse = useRef({ x: 0.5, y: 0.5 })
+  const rendered = useRef({ x: 0.5, y: 0.5 })
+  const rafId = useRef<number>(0)
+
+  /* Smooth cursor-following loop */
+  const animate = useCallback(() => {
+    const ease = 0.045
+    const dx = mouse.current.x - rendered.current.x
+    const dy = mouse.current.y - rendered.current.y
+    rendered.current.x += dx * ease
+    rendered.current.y += dy * ease
+
+    if (orbRef.current && (Math.abs(dx) > 0.0001 || Math.abs(dy) > 0.0001)) {
+      orbRef.current.style.setProperty('--orb-x', `${rendered.current.x * 100}%`)
+      orbRef.current.style.setProperty('--orb-y', `${rendered.current.y * 100}%`)
+    }
+    rafId.current = requestAnimationFrame(animate)
+  }, [])
+
+  useEffect(() => {
+    rafId.current = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(rafId.current)
+  }, [animate])
+
+  /* Track pointer relative to the hero section */
+  const handlePointerMove = useCallback((e: React.PointerEvent<HTMLElement>) => {
+    const rect = sectionRef.current?.getBoundingClientRect()
+    if (!rect) return
+    mouse.current.x = (e.clientX - rect.left) / rect.width
+    mouse.current.y = (e.clientY - rect.top) / rect.height
+  }, [])
 
   useEffect(() => {
     if (!sectionRef.current) return
@@ -20,8 +52,12 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16"
+      onPointerMove={handlePointerMove}
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16 overflow-hidden"
     >
+      {/* Interactive ambient gradient orb */}
+      <div ref={orbRef} className="hero-orb" aria-hidden="true" />
+
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
         {/* Badge */}
         <div className="hero-fade-up mb-6">

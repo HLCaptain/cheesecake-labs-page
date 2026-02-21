@@ -132,6 +132,31 @@
 .delay-500 { transition-delay: 500ms; }
 .delay-600 { transition-delay: 600ms; }
 
+/* Hero interactive gradient orb */
+.hero-orb {
+  --orb-x: 50%;
+  --orb-y: 50%;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    600px circle at var(--orb-x) var(--orb-y),
+    rgba(245, 158, 11, 0.08),
+    transparent 70%
+  );
+  transition: opacity 0.4s ease-out;
+  will-change: background;
+}
+
+[data-theme='light'] .hero-orb {
+  background: radial-gradient(
+    600px circle at var(--orb-x) var(--orb-y),
+    rgba(217, 119, 6, 0.07),
+    transparent 70%
+  );
+}
+
 /* Input focus ring */
 input:focus,
 textarea:focus,
