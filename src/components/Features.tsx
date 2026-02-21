@@ -134,25 +134,25 @@ export default function Features() {
                 key={feature.title}
                 className={`animate-on-scroll ${delayClass} group relative p-8 rounded-2xl border-gradient bg-surface hover:bg-[#1a1a24] transition-colors duration-200 cursor-default`}
               >
-              {/* Icon */}
-              <div className="mb-6 w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 group-hover:bg-amber-500/15 group-hover:border-amber-500/25 transition-all duration-300">
-                {feature.icon}
-              </div>
+                {/* Icon */}
+                <div className="mb-6 w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 group-hover:bg-amber-500/15 group-hover:border-amber-500/25 transition-all duration-300">
+                  {feature.icon}
+                </div>
 
-              {/* Tag */}
-              <span className="inline-block text-[11px] font-semibold text-amber-500 tracking-widest uppercase mb-3">
-                {feature.tag}
-              </span>
+                {/* Tag */}
+                <span className="inline-block text-[11px] font-semibold text-amber-500 tracking-widest uppercase mb-3">
+                  {feature.tag}
+                </span>
 
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-cream mb-3">{feature.title}</h3>
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-cream mb-3">{feature.title}</h3>
 
-              {/* Description */}
-              <p className="text-cream-muted text-sm leading-relaxed">{feature.description}</p>
+                {/* Description */}
+                <p className="text-cream-muted text-sm leading-relaxed">{feature.description}</p>
 
-              {/* Hover shimmer line */}
-              <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
-            </article>
+                {/* Hover shimmer line */}
+                <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
+              </article>
             )
           })}
         </div>
