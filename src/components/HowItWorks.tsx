@@ -27,14 +27,14 @@ const steps: Step[] = [
     title: 'Expert Development',
     description: 'Experienced developers, thoughtful delivery',
     detail:
-      'Senior human developers execute the build with surgical precision — pixel-perfect UI, clean architecture, and thorough code reviews. AI handles the repetitive heavy lifting so your team can focus on uniqueness.',
+      'Senior human developers execute the build with care — pixel-perfect UI, clean architecture, and thorough code reviews. AI handles repetitive tasks so your team can focus on what makes the product unique.',
   },
   {
     number: '04',
-    title: 'Continuous Delivery',
-    description: 'Ship, measure, iterate',
+    title: 'Deliver & Optimize',
+    description: 'Ship, measure, improve',
     detail:
-      'Regular releases with automated quality checks, staging environments, and stakeholder previews. Our iteration loops are tight — feedback on Monday can be live by Wednesday.',
+      'Regular releases with quality checks and staging previews keep stakeholders aligned. We can also help your team adopt better AI workflows and tooling to maintain momentum long after we\'re done.',
   },
 ]
 
@@ -61,74 +61,58 @@ export default function HowItWorks() {
   }, [])
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="py-28 px-6 bg-[#0d0d14] relative overflow-hidden">
-      {/* Background orbs */}
-      <div className="orb w-[400px] h-[400px] bg-amber-500/5 -bottom-20 -left-20" aria-hidden="true" />
-
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="how-it-works"
+      ref={sectionRef}
+      className="py-28 px-6 relative"
+      style={{ backgroundColor: 'var(--bg-secondary)' }}
+    >
+      <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <div className="animate-on-scroll delay-100">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-400 mb-4 tracking-wide uppercase">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-500 mb-4 tracking-wide uppercase">
               Process
             </span>
           </div>
-          <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight text-cream mb-4">
+          <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
             How it <span className="text-gradient">works</span>
           </h2>
-          <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-cream-muted text-lg leading-relaxed">
-            A streamlined engagement model for enterprise teams that need
-            consistent delivery — from first call to first deploy.
+          <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            A straightforward process designed to get from first conversation to
+            first deploy with clarity at every step.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="relative">
-          {/* Vertical connector line (desktop) */}
-          <div
-            className="hidden lg:block absolute left-[calc(50%-1px)] top-8 bottom-8 w-px"
-            style={{
-              background:
-                'linear-gradient(to bottom, transparent, rgba(245,158,11,0.2) 15%, rgba(245,158,11,0.2) 85%, transparent)',
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="flex flex-col gap-12 lg:gap-0">
-            {steps.map((step, i) => {
-              const isLeft = i % 2 === 0
-              return (
-                <div
-                  key={step.number}
-                  className={`animate-on-scroll ${['delay-100', 'delay-200', 'delay-300', 'delay-400'][i]} relative flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-0 ${
-                    isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  } lg:mb-16 last:mb-0`}
-                >
-                  {/* Content */}
-                  <div className={`w-full lg:w-[calc(50%-3rem)] ${isLeft ? 'lg:pr-12 lg:text-right' : 'lg:pl-12'}`}>
-                    <div
-                        className={`group p-7 rounded-2xl border border-white/5 bg-[#111118] hover:bg-[#1a1a24] hover:border-amber-500/15 transition-colors duration-200`}
-                    >
-                      <span className="inline-block text-[11px] font-bold text-amber-500 tracking-widest uppercase mb-2">
-                        Step {step.number}
-                      </span>
-                      <h3 className="text-xl font-semibold text-cream mb-1">{step.title}</h3>
-                      <p className="text-sm font-medium text-amber-500/70 mb-3">{step.description}</p>
-                      <p className="text-sm text-cream-muted leading-relaxed">{step.detail}</p>
-                    </div>
-                  </div>
-
-                  {/* Center node */}
-                  <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#0d0d14] border-2 border-amber-500/30 items-center justify-center z-10">
+        <div className="flex flex-col gap-6">
+          {steps.map((step, i) => {
+            const delayClass = ['delay-100', 'delay-200', 'delay-300', 'delay-400'][i]
+            return (
+              <div
+                key={step.number}
+                className={`animate-on-scroll ${delayClass} group p-7 rounded-2xl transition-colors duration-200`}
+                style={{
+                  backgroundColor: 'var(--bg-surface)',
+                  border: '1px solid var(--border-soft)',
+                  willChange: 'transform',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-surface-hover)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-surface)' }}
+              >
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
                     <span className="text-xs font-bold text-amber-500">{step.number}</span>
                   </div>
-
-                  {/* Empty spacer for the other side */}
-                  <div className="hidden lg:block w-[calc(50%-3rem)]" />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>{step.title}</h3>
+                    <p className="text-sm font-medium text-amber-500/70 mb-2">{step.description}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{step.detail}</p>
+                  </div>
                 </div>
-              )
-            })}
-          </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
