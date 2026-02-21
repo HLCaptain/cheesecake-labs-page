@@ -26,8 +26,8 @@ const features: Feature[] = [
     ),
     title: 'Accelerated Development',
     description:
-      'Ship features 10x faster with AI-augmented development pipelines. Our agents handle the scaffolding, boilerplate, and research so your team focuses on what matters.',
-    tag: '10x Faster',
+      'Accelerate delivery with AI-assisted workflows. Our agents handle scaffolding, boilerplate, and research so your team can stay focused on product decisions.',
+    tag: 'Fast Start',
   },
   {
     icon: (
@@ -49,8 +49,8 @@ const features: Feature[] = [
     ),
     title: 'Attention to Detail',
     description:
-      'Pixel-perfect implementations with obsessive focus on UX and interaction design. We sweat the micro-animations, spacing, and transitions that make products feel exceptional.',
-    tag: 'Pixel Perfect',
+      'Thoughtful implementation with careful UX craft. We tune interactions, spacing, and states so products feel polished and reliable in daily use.',
+    tag: 'Polished UX',
   },
   {
     icon: (
@@ -72,8 +72,8 @@ const features: Feature[] = [
     ),
     title: 'Faster Iteration',
     description:
-      'Rapid feedback loops with continuous delivery for enterprise-grade products. Weekly releases, real-time previews, and instant staging environments keep projects moving.',
-    tag: 'Continuous Delivery',
+      'Short feedback loops help teams iterate with confidence. Frequent releases, previews, and staging links keep stakeholders aligned.',
+    tag: 'Tight Loops',
   },
 ]
 
@@ -112,16 +112,16 @@ export default function Features() {
         <div className="text-center mb-16">
           <div className="animate-on-scroll delay-100">
             <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-400 mb-4 tracking-wide uppercase">
-              Why Choose Us
+              What You Get
             </span>
           </div>
           <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight text-cream mb-4">
-            Built for enterprises that{' '}
-            <span className="text-gradient">refuse to compromise</span>
+            Built for teams that value{' '}
+            <span className="text-gradient">craft and momentum</span>
           </h2>
           <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-cream-muted text-lg leading-relaxed">
-            We combine cutting-edge AI tooling with seasoned developers to deliver
-            outcomes that feel impossible — on timelines that defy convention.
+            We combine AI tooling with experienced developers to help large teams
+            ship quality frontend products with steady progress.
           </p>
         </div>
 
@@ -130,29 +130,29 @@ export default function Features() {
           {features.map((feature, i) => {
             const delayClass = ['delay-200', 'delay-300', 'delay-400'][i]
             return (
-            <article
-              key={feature.title}
-              className={`animate-on-scroll ${delayClass} group relative p-8 rounded-2xl border-gradient bg-surface hover:bg-[#1a1a24] transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/10 cursor-default`}
-            >
-              {/* Icon */}
-              <div className="mb-6 w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 group-hover:bg-amber-500/15 group-hover:border-amber-500/25 transition-all duration-300">
-                {feature.icon}
-              </div>
+              <article
+                key={feature.title}
+                className={`animate-on-scroll ${delayClass} group relative p-8 rounded-2xl border-gradient bg-surface hover:bg-[#1a1a24] transition-colors duration-200 cursor-default`}
+              >
+                {/* Icon */}
+                <div className="mb-6 w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 group-hover:bg-amber-500/15 group-hover:border-amber-500/25 transition-all duration-300">
+                  {feature.icon}
+                </div>
 
-              {/* Tag */}
-              <span className="inline-block text-[11px] font-semibold text-amber-500 tracking-widest uppercase mb-3">
-                {feature.tag}
-              </span>
+                {/* Tag */}
+                <span className="inline-block text-[11px] font-semibold text-amber-500 tracking-widest uppercase mb-3">
+                  {feature.tag}
+                </span>
 
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-cream mb-3">{feature.title}</h3>
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-cream mb-3">{feature.title}</h3>
 
-              {/* Description */}
-              <p className="text-cream-muted text-sm leading-relaxed">{feature.description}</p>
+                {/* Description */}
+                <p className="text-cream-muted text-sm leading-relaxed">{feature.description}</p>
 
-              {/* Hover shimmer line */}
-              <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-full" />
-            </article>
+                {/* Hover shimmer line */}
+                <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
+              </article>
             )
           })}
         </div>
