@@ -113,7 +113,7 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, '#contact')}
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-amber-500 text-[#0a0a0f] hover:bg-amber-400 transition-all duration-200 hover:-translate-y-0.5"
+            className="px-4 py-2 text-sm font-medium rounded-lg bg-amber-500 text-[#0a0a0f] hover:bg-amber-400 active:scale-95 transition-all duration-200"
           >
             Get in Touch
           </a>

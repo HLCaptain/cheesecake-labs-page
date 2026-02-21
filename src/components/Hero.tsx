@@ -1,7 +1,107 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
-export default function Hero() {
+interface HeroProps {
+  theme: 'dark' | 'light'
+}
+
+export default function Hero({ theme }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const mouse = useRef({ x: -1, y: -1 })
+  const rafId = useRef<number>(0)
+  const themeRef = useRef(theme)
+
+  useEffect(() => {
+    themeRef.current = theme
+  }, [theme])
+
+  /* Interactive dot grid rendered on <canvas> */
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const section = sectionRef.current
+    if (!canvas || !section) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const GAP = 32
+    const BASE_RADIUS = 1
+    const MAX_RADIUS = 3
+    const INFLUENCE = 150
+
+    const getThemeColors = () => {
+      return themeRef.current === 'dark' 
+        ? { color: [245, 158, 11] as [number, number, number], baseAlpha: 0.2 }
+        : { color: [31, 41, 55] as [number, number, number], baseAlpha: 0.5 }
+    }
+
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1
+      const rect = section.getBoundingClientRect()
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      canvas.style.width = `${rect.width}px`
+      canvas.style.height = `${rect.height}px`
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+    }
+
+    const draw = () => {
+      const { color: dotColor, baseAlpha: initAlpha } = getThemeColors()
+      const w = canvas.width / (window.devicePixelRatio || 1)
+      const h = canvas.height / (window.devicePixelRatio || 1)
+      ctx.clearRect(0, 0, w, h)
+
+      const mx = mouse.current.x
+      const my = mouse.current.y
+
+      for (let x = GAP; x < w; x += GAP) {
+        for (let y = GAP; y < h; y += GAP) {
+          let radius = BASE_RADIUS
+          let alpha = initAlpha
+
+          if (mx >= 0 && my >= 0) {
+            const dist = Math.hypot(x - mx, y - my)
+            if (dist < INFLUENCE) {
+              const t = 1 - dist / INFLUENCE
+              radius = BASE_RADIUS + (MAX_RADIUS - BASE_RADIUS) * t
+              alpha = initAlpha + 0.55 * t
+            }
+          }
+
+          ctx.beginPath()
+          ctx.arc(x, y, radius, 0, Math.PI * 2)
+          ctx.fillStyle = `rgba(${dotColor[0]},${dotColor[1]},${dotColor[2]},${alpha})`
+          ctx.fill()
+        }
+      }
+
+      rafId.current = requestAnimationFrame(draw)
+    }
+
+    resize()
+    rafId.current = requestAnimationFrame(draw)
+
+    const ro = new ResizeObserver(resize)
+    ro.observe(section)
+
+    return () => {
+      cancelAnimationFrame(rafId.current)
+      ro.disconnect()
+    }
+  }, [])
+
+  /* Track pointer in pixel coords relative to section */
+  const handlePointerMove = useCallback((e: React.PointerEvent<HTMLElement>) => {
+    const rect = sectionRef.current?.getBoundingClientRect()
+    if (!rect) return
+    mouse.current.x = e.clientX - rect.left
+    mouse.current.y = e.clientY - rect.top
+  }, [])
+
+  const handlePointerLeave = useCallback(() => {
+    mouse.current.x = -1
+    mouse.current.y = -1
+  }, [])
 
   useEffect(() => {
     if (!sectionRef.current) return
@@ -20,8 +120,13 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16"
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16 overflow-hidden"
     >
+      {/* Interactive dot grid */}
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0" aria-hidden="true" />
+
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
         {/* Badge */}
         <div className="hero-fade-up mb-6">
@@ -57,13 +162,13 @@ export default function Hero() {
         <div className="hero-fade-up flex flex-col sm:flex-row items-center gap-4">
           <button
             onClick={() => scrollTo('#contact')}
-            className="px-6 py-3.5 rounded-xl font-semibold text-sm bg-amber-500 text-[#0a0a0f] hover:bg-amber-400 transition-all duration-200 hover:-translate-y-0.5 min-w-[180px]"
+            className="px-6 py-3.5 rounded-xl font-semibold text-sm bg-amber-500 text-[#0a0a0f] hover:bg-amber-400 active:scale-95 transition-all duration-200 min-w-[180px]"
           >
             Start a Conversation
           </button>
           <button
             onClick={() => scrollTo('#why-us')}
-            className="px-6 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 min-w-[180px]"
+            className="px-6 py-3.5 rounded-xl font-semibold text-sm active:scale-95 transition-all duration-200 min-w-[180px]"
             style={{ backgroundColor: 'var(--bg-surface)', color: 'var(--text-primary)', border: '1px solid var(--border-soft)' }}
           >
             See Our Approach

@@ -23,7 +23,7 @@ function App() {
     <div className="min-h-screen font-sans transition-colors duration-200" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
       <NavBar theme={theme} onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))} />
       <main>
-        <Hero />
+        <Hero theme={theme} />
         <Features />
         <HowItWorks />
         <SocialProof />
