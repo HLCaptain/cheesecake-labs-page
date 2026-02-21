@@ -26,7 +26,7 @@ const features: Feature[] = [
     ),
     title: 'Accelerated Development',
     description:
-      'Accelerate delivery with AI-assisted workflows. Our agents handle scaffolding, boilerplate, and research so your team can stay focused on product decisions.',
+      'AI agents handle scaffolding, boilerplate, and research while senior developers focus on architecture and product decisions. Move faster without cutting corners.',
     tag: 'Fast Start',
   },
   {
@@ -44,7 +44,6 @@ const features: Feature[] = [
       >
         <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
         <circle cx="12" cy="12" r="3" />
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41" />
       </svg>
     ),
     title: 'Attention to Detail',
@@ -65,15 +64,14 @@ const features: Feature[] = [
         className="w-6 h-6"
         aria-hidden="true"
       >
-        <path d="M1 4v6h6" />
-        <path d="M23 20v-6h-6" />
-        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 0 1 3.51 15" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
       </svg>
     ),
-    title: 'Faster Iteration',
+    title: 'AI Workflow Consulting',
     description:
-      'Short feedback loops help teams iterate with confidence. Frequent releases, previews, and staging links keep stakeholders aligned.',
-    tag: 'Tight Loops',
+      'Beyond building products, we help teams design and implement efficient AI workflows — from choosing the right tools to optimizing development pipelines.',
+    tag: 'Optimize',
   },
 ]
 
@@ -100,27 +98,21 @@ export default function Features() {
   }, [])
 
   return (
-    <section id="features" ref={sectionRef} className="py-28 px-6 relative overflow-hidden">
-      {/* Subtle background */}
-      <div
-        className="orb w-[500px] h-[300px] bg-amber-500/5 top-0 right-0"
-        aria-hidden="true"
-      />
-
+    <section id="features" ref={sectionRef} className="py-28 px-6 relative">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="animate-on-scroll delay-100">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-400 mb-4 tracking-wide uppercase">
-              What You Get
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-500 mb-4 tracking-wide uppercase">
+              What We Do
             </span>
           </div>
-          <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight text-cream mb-4">
+          <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
             Built for teams that value{' '}
             <span className="text-gradient">craft and momentum</span>
           </h2>
-          <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-cream-muted text-lg leading-relaxed">
-            We combine AI tooling with experienced developers to help large teams
+          <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            We combine AI tooling with experienced developers to help teams
             ship quality frontend products with steady progress.
           </p>
         </div>
@@ -132,7 +124,14 @@ export default function Features() {
             return (
               <article
                 key={feature.title}
-                className={`animate-on-scroll ${delayClass} group relative p-8 rounded-2xl border-gradient bg-surface hover:bg-[#1a1a24] transition-colors duration-200 cursor-default`}
+                className={`animate-on-scroll ${delayClass} group relative p-8 rounded-2xl transition-colors duration-200 cursor-default`}
+                style={{
+                  backgroundColor: 'var(--bg-surface)',
+                  border: '1px solid var(--border-soft)',
+                  willChange: 'transform',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-surface-hover)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-surface)' }}
               >
                 {/* Icon */}
                 <div className="mb-6 w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 group-hover:bg-amber-500/15 group-hover:border-amber-500/25 transition-all duration-300">
@@ -145,13 +144,10 @@ export default function Features() {
                 </span>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-cream mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>{feature.title}</h3>
 
                 {/* Description */}
-                <p className="text-cream-muted text-sm leading-relaxed">{feature.description}</p>
-
-                {/* Hover shimmer line */}
-                <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{feature.description}</p>
               </article>
             )
           })}

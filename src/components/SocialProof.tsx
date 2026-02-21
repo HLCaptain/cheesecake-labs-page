@@ -1,35 +1,46 @@
 import { useEffect, useRef } from 'react'
 
-interface Stat {
-  value: string
-  label: string
+interface PhilosophyCard {
+  icon: React.ReactNode
+  title: string
   description: string
 }
 
-const stats: Stat[] = [
+const cards: PhilosophyCard[] = [
   {
-    value: 'Shorter',
-    label: 'Delivery Cycles',
-    description: 'Compared with traditional outsourcing handoffs',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+      </svg>
+    ),
+    title: 'Human + AI Collaboration',
+    description:
+      'We don\'t replace developers with AI — we amplify them. Our AI agents handle the tedious parts while senior humans make the creative decisions that matter.',
   },
   {
-    value: '50+',
-    label: 'Enterprise Projects',
-    description: 'Shipped for Fortune 500 and Series B+ companies',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+    title: 'Obsessed with Detail',
+    description:
+      'Every interaction, every pixel, every state. We believe great products are built in the margins — the small touches that make users feel cared for.',
   },
   {
-    value: 'Long-term',
-    label: 'Partnerships',
-    description: 'Many engagements continue across multiple roadmap phases',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+    title: 'Startup Agility, Studio Quality',
+    description:
+      'We\'re a small, focused team that moves fast without sacrificing craft. No layers of management — just direct collaboration and honest communication.',
   },
 ]
-
-const testimonial = {
-  quote:
-    '"CheeseCake Labs helped us ship with more rhythm. We moved from long release cycles to steady weekly progress, while keeping quality high."',
-  author: 'VP of Engineering',
-  company: 'Global FinTech Enterprise',
-}
 
 export default function SocialProof() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -54,68 +65,62 @@ export default function SocialProof() {
   }, [])
 
   return (
-    <section id="social-proof" ref={sectionRef} className="py-28 px-6 relative overflow-hidden">
-      <div className="orb w-[600px] h-[300px] bg-amber-500/6 top-0 left-1/2 -translate-x-1/2" aria-hidden="true" />
-
+    <section id="why-us" ref={sectionRef} className="py-28 px-6 relative">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="animate-on-scroll delay-100">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-400 mb-4 tracking-wide uppercase">
-              Results
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-500 mb-4 tracking-wide uppercase">
+              Our Philosophy
             </span>
           </div>
-          <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight text-cream mb-4">
-            Built for enterprises that need{' '}
-            <span className="text-gradient">steady momentum</span>
+          <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
+            Why <span className="text-gradient">CheeseCake Labs?</span>
           </h2>
-          <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-cream-muted text-lg leading-relaxed">
-            Our clients are large-scale businesses that demand quality,
-            reliability, and focused execution without unnecessary process.
+          <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            We're building something new — a studio where AI and human craft
+            come together to create interfaces people genuinely enjoy using.
           </p>
         </div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-          {stats.map((stat, i) => {
+        {/* Philosophy cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {cards.map((card, i) => {
             const delayClass = ['delay-200', 'delay-300', 'delay-400'][i]
             return (
               <div
-                key={stat.label}
-                className={`animate-on-scroll ${delayClass} relative p-8 rounded-2xl border border-white/5 bg-[#111118] text-center group hover:border-amber-500/20 hover:bg-[#1a1a24] transition-colors duration-200`}
+                key={card.title}
+                className={`animate-on-scroll ${delayClass} group p-8 rounded-2xl transition-colors duration-200`}
+                style={{
+                  backgroundColor: 'var(--bg-surface)',
+                  border: '1px solid var(--border-soft)',
+                  willChange: 'transform',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-surface-hover)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-surface)' }}
               >
-                <div className="text-5xl font-black text-gradient mb-2">{stat.value}</div>
-                <div className="text-base font-semibold text-cream mb-2">{stat.label}</div>
-                <p className="text-sm text-cream-muted">{stat.description}</p>
+                <div className="mb-5 w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 group-hover:bg-amber-500/15 group-hover:border-amber-500/25 transition-all duration-300">
+                  {card.icon}
+                </div>
+                <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>{card.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{card.description}</p>
               </div>
             )
           })}
         </div>
 
-        {/* Testimonial */}
-        <div className="animate-on-scroll delay-500 relative max-w-3xl mx-auto">
-          <div className="relative p-10 rounded-2xl border border-amber-500/15 bg-[#111118] glow-amber">
-            {/* Quote mark */}
-            <div
-              className="absolute -top-4 left-10 text-amber-500/30 text-8xl font-serif leading-none select-none"
-              aria-hidden="true"
-            >
-              "
-            </div>
-            <blockquote className="relative z-10">
-              <p className="text-lg sm:text-xl text-cream leading-relaxed font-medium mb-6">
-                {testimonial.quote}
-              </p>
-              <footer className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 font-bold text-sm">
-                  VP
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-cream">{testimonial.author}</div>
-                  <div className="text-xs text-cream-muted">{testimonial.company}</div>
-                </div>
-              </footer>
-            </blockquote>
+        {/* Founder vision quote */}
+        <div className="animate-on-scroll delay-500 relative max-w-2xl mx-auto text-center">
+          <div
+            className="p-8 rounded-2xl"
+            style={{ backgroundColor: 'var(--bg-surface)', border: '1px solid var(--border-soft)' }}
+          >
+            <p className="text-lg italic leading-relaxed mb-4" style={{ color: 'var(--text-primary)' }}>
+              "We started CheeseCake Labs because we believe the best products come from
+              combining AI's speed with human intuition. We're not the biggest studio — we're
+              the one that cares the most about getting the details right."
+            </p>
+            <p className="text-sm font-medium text-amber-500">— The CheeseCake Labs Team</p>
           </div>
         </div>
       </div>

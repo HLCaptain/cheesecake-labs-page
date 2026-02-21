@@ -1,6 +1,7 @@
 const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Our Philosophy', href: '#why-us' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -44,7 +45,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#0a0a0f] border-t border-white/5">
+    <footer style={{ backgroundColor: 'var(--bg-primary)', borderTop: '1px solid var(--border-soft)' }}>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
@@ -58,19 +59,19 @@ export default function Footer() {
               <span className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-base">
                 🍰
               </span>
-              <span className="font-semibold text-cream text-sm tracking-tight">
+              <span className="font-semibold text-sm tracking-tight" style={{ color: 'var(--text-primary)' }}>
                 CheeseCake <span className="text-amber-500">Labs</span>
               </span>
             </a>
-            <p className="text-sm text-cream-muted leading-relaxed max-w-xs">
-              AI-powered frontend and app development for enterprises that demand
-              quality and speed without compromise.
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--text-muted)' }}>
+              An AI-powered development studio combining intelligent agents with
+              human craft to build interfaces people love.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-xs font-semibold text-cream tracking-widest uppercase mb-4">
+            <h3 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'var(--text-primary)' }}>
               Navigation
             </h3>
             <ul className="flex flex-col gap-3" role="list">
@@ -79,7 +80,8 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-sm text-cream-muted hover:text-cream transition-colors duration-200"
+                    className="text-sm hover:text-amber-500 transition-colors duration-200"
+                    style={{ color: 'var(--text-muted)' }}
                   >
                     {link.label}
                   </a>
@@ -90,10 +92,10 @@ export default function Footer() {
 
           {/* Contact & Social */}
           <div>
-            <h3 className="text-xs font-semibold text-cream tracking-widest uppercase mb-4">
+            <h3 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'var(--text-primary)' }}>
               Connect
             </h3>
-            <p className="text-sm text-cream-muted mb-4">
+            <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
               <a
                 href="mailto:hello@cheesecakelabs.com"
                 className="text-amber-500/80 hover:text-amber-500 transition-colors duration-200"
@@ -107,7 +109,8 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-cream-muted hover:text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/20 transition-all duration-200"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center hover:text-amber-500 hover:bg-amber-500/10 transition-all duration-200"
+                  style={{ backgroundColor: 'var(--bg-surface)', border: '1px solid var(--border-soft)', color: 'var(--text-muted)' }}
                 >
                   {social.icon}
                 </a>
@@ -117,15 +120,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-cream-muted">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid var(--border-soft)' }}>
+          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
             &copy; {year} CheeseCake Labs. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-cream-muted hover:text-cream transition-colors duration-200">
+            <a href="#" className="text-xs hover:text-amber-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
               Privacy Policy
             </a>
-            <a href="#" className="text-xs text-cream-muted hover:text-cream transition-colors duration-200">
+            <a href="#" className="text-xs hover:text-amber-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
               Terms of Service
             </a>
           </div>
