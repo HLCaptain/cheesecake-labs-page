@@ -98,14 +98,8 @@ export default function SocialProof() {
                   border: '1px solid var(--border-soft)',
                   willChange: 'transform',
                 }}
-                onMouseMove={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--bg-surface-hover)'
-                  handleTiltMove(e)
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--bg-surface)'
-                  handleTiltLeave(e)
-                }}
+                onMouseMove={handleTiltMove}
+                onMouseLeave={handleTiltLeave}
               >
                 <div className="mb-5 w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 group-hover:bg-amber-500/15 group-hover:border-amber-500/25 transition-all duration-300">
                   {card.icon}
