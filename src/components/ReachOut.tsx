@@ -39,8 +39,12 @@ function validate(data: FormData): FormErrors {
     errors.email = 'Enter a valid email address'
   }
   if (!data.interest) errors.interest = 'Please select an option'
-  if (!data.description.trim()) errors.description = 'Tell us a bit about your project'
-  if (data.description.trim().length > 0 && data.description.trim().length < 20) errors.description = 'Please provide at least 20 characters'
+  const trimmedDescription = data.description.trim()
+  if (!trimmedDescription) {
+    errors.description = 'Tell us a bit about your project'
+  } else if (trimmedDescription.length < 20) {
+    errors.description = 'Please provide at least 20 characters'
+  }
   return errors
 }
 
