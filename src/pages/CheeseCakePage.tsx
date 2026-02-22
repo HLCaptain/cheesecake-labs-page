@@ -14,7 +14,7 @@ interface CheeseCakePageProps {
 
 export default function CheeseCakePage({ theme, onToggleTheme }: CheeseCakePageProps) {
   useEffect(() => {
-    document.title = '🍰 CheeseCake Labs — Next-Gen AI Development'
+    document.title = 'CheeseCake Labs — Next-Gen AI Development'
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
     if (link) link.href = '/favicon.svg'
   }, [])

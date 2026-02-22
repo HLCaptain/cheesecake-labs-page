@@ -14,7 +14,7 @@ interface MindShiftPageProps {
 
 export default function MindShiftPage({ theme, onToggleTheme }: MindShiftPageProps) {
   useEffect(() => {
-    document.title = '🧠 MindShift — Digital Wellbeing'
+    document.title = 'MindShift — Digital Wellbeing'
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
     if (link) link.href = '/favicon-mindshift.svg'
   }, [])

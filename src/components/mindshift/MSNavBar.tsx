@@ -104,7 +104,7 @@ export default function MSNavBar({ theme, onToggleTheme }: MSNavBarProps) {
               className="text-sm hover:text-teal-500 transition-colors duration-200 relative group"
               style={{ color: 'var(--text-muted)' }}
             >
-              CheeseCake Labs
+              🍰 CheeseCake Labs
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-teal-500 transition-all duration-300 group-hover:w-full" />
             </Link>
           </li>

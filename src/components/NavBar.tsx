@@ -104,7 +104,7 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
               className="text-sm hover:text-amber-500 transition-colors duration-200 relative group"
               style={{ color: 'var(--text-muted)' }}
             >
-              MindShift
+              🧠 MindShift
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-500 transition-all duration-300 group-hover:w-full" />
             </Link>
           </li>
