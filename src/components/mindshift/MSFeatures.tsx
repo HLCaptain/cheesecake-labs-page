@@ -28,8 +28,30 @@ const features: Feature[] = [
     ),
     title: 'Customizable App Blocking',
     description:
-      'Choose exactly which social media apps to block and set specific time ranges — block apps at night to encourage sleep, during study hours for focus, or whenever you need a break from scrolling.',
+      'Choose exactly which social media apps to block and set specific time ranges — block apps at night to encourage sleep, during study hours for focus, or whenever you want a distraction-free window.',
     tag: 'Core Feature',
+  },
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.75}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-6 h-6"
+        aria-hidden="true"
+      >
+        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 01-3.46 0" />
+      </svg>
+    ),
+    title: 'Smart Activity Prompts',
+    description:
+      'When you try to open a blocked app, MindShift suggests a scheduled activity instead — giving you a positive, engaging alternative right when you need it most.',
+    tag: 'Motivate',
   },
   {
     icon: (
@@ -52,28 +74,6 @@ const features: Feature[] = [
     description:
       'Receive and schedule personalized habit recommendations — like working out from 5–7 PM or reading before bed. MindShift fills your free time with activities that feel rewarding, not empty.',
     tag: 'Engage',
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.75}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-6 h-6"
-        aria-hidden="true"
-      >
-        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
-        <path d="M13.73 21a2 2 0 01-3.46 0" />
-      </svg>
-    ),
-    title: 'Smart Activity Prompts',
-    description:
-      'When you try to open a blocked app, MindShift prompts you with a scheduled activity instead. Instead of guilt, you get a fun, meaningful alternative — making breaks from scrolling enjoyable and sustainable.',
-    tag: 'Motivate',
   },
 ]
 
@@ -111,8 +111,8 @@ export default function MSFeatures() {
             </span>
           </div>
           <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
-            Break the scroll,{' '}
-            <span className="text-gradient-teal">reclaim your time</span>
+            Tools for a{' '}
+            <span className="text-gradient-teal">balanced digital life</span>
           </h2>
           <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
             MindShift goes beyond generic screen time trackers by combining customizable

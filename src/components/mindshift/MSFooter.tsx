@@ -66,8 +66,8 @@ export default function MSFooter() {
               </span>
             </a>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--text-muted)' }}>
-              A digital wellbeing app that helps young people break the social media
-              scrolling habit through customizable app blocking and personalized activity suggestions.
+              A digital wellbeing app that helps people build healthier habits
+              through customizable app blocking and personalized activity suggestions.
             </p>
           </div>
 

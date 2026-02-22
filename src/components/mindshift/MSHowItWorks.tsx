@@ -14,19 +14,19 @@ const steps: Step[] = [
     title: 'Choose Your Apps',
     description: 'Take control of your screen time',
     detail:
-      'Select which social media apps you want to block. MindShift lets you customize your blocklist so you only restrict the apps that eat up your time — no blanket bans, just smart choices.',
+      'Select which social media apps you want to block. MindShift lets you customize your blocklist so you only restrict the apps you choose — flexible, precise, and fully in your control.',
   },
   {
     number: '02',
     title: 'Set Blocking Schedules',
     description: 'Block apps when it matters most',
     detail:
-      'Define specific time ranges for blocking — like nighttime to encourage better sleep, study hours for focus, or whenever you tend to fall into the scrolling trap. Flexible rules that fit your routine.',
+      'Define specific time ranges for blocking — like nighttime to encourage better sleep, study hours for focus, or whenever you tend to lose track of time. Flexible rules that fit your routine.',
   },
   {
     number: '03',
     title: 'Get Activity Suggestions',
-    description: 'Replace scrolling with something rewarding',
+    description: 'Discover something better to do',
     detail:
       'Receive personalized activity recommendations you can schedule throughout your day — like working out from 5–7 PM, reading, or picking up a hobby. When you try to open a blocked app, MindShift suggests these activities instead.',
   },
@@ -35,7 +35,7 @@ const steps: Step[] = [
     title: 'Build Better Habits',
     description: 'Make the shift stick',
     detail:
-      'Over time, MindShift helps you replace mindless scrolling with enjoyable, purposeful activities. Track your progress and see how small changes add up to a healthier relationship with your phone.',
+      'Over time, MindShift helps you build a healthier lifestyle by replacing screen time with enjoyable, purposeful activities. Track your progress and see how small changes add up to lasting well-being.',
   },
 ]
 

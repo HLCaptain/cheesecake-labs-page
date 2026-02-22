@@ -186,9 +186,9 @@ export default function MSHero({ theme }: MSHeroProps) {
           className="hero-fade-up text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.08] mb-6"
           style={{ color: 'var(--text-primary)' }}
         >
-          Stop scrolling,{' '}
+          Your time,{' '}
           <br className="hidden sm:block" />
-          <span className="text-gradient-teal">start living.</span>
+          <span className="text-gradient-teal">your choice.</span>
         </h1>
 
         {/* Subtext */}
@@ -196,11 +196,11 @@ export default function MSHero({ theme }: MSHeroProps) {
           className="hero-fade-up max-w-2xl text-lg sm:text-xl leading-relaxed mb-10"
           style={{ color: 'var(--text-muted)' }}
         >
-          MindShift helps young people aged 14–30{' '}
-          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>break the endless scrolling habit</span> by
-          blocking social media apps during set times and replacing them with{' '}
-          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>fun, personalized activity suggestions</span> —
-          so you can reclaim your time and feel good about it.
+          MindShift helps you{' '}
+          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>build a healthier relationship with social media</span> by
+          blocking distracting apps during set times and replacing them with{' '}
+          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>personalized activity suggestions</span> —
+          so you can spend your time on what truly matters.
         </p>
 
         {/* CTAs */}
