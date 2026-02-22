@@ -177,7 +177,7 @@ export default function MSHero({ theme }: MSHeroProps) {
         <div className="hero-fade-up mb-6">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-teal-500/10 border border-teal-500/20 text-teal-500 tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" aria-hidden="true" />
-            Digital Wellbeing Platform
+            Coming Soon — Currently in Prototyping
           </span>
         </div>
 
@@ -186,9 +186,9 @@ export default function MSHero({ theme }: MSHeroProps) {
           className="hero-fade-up text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.08] mb-6"
           style={{ color: 'var(--text-primary)' }}
         >
-          Reclaim your focus,{' '}
+          Stop scrolling,{' '}
           <br className="hidden sm:block" />
-          <span className="text-gradient-teal">shift your mindset.</span>
+          <span className="text-gradient-teal">start living.</span>
         </h1>
 
         {/* Subtext */}
@@ -196,11 +196,11 @@ export default function MSHero({ theme }: MSHeroProps) {
           className="hero-fade-up max-w-2xl text-lg sm:text-xl leading-relaxed mb-10"
           style={{ color: 'var(--text-muted)' }}
         >
-          MindShift helps you build{' '}
-          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>healthier daily habits</span> by
-          blocking distracting apps, guiding{' '}
-          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>mindful journaling</span>, and
-          tracking your progress — for individuals and organizations alike.
+          MindShift helps young people aged 14–30{' '}
+          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>break the endless scrolling habit</span> by
+          blocking social media apps during set times and replacing them with{' '}
+          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>fun, personalized activity suggestions</span> —
+          so you can reclaim your time and feel good about it.
         </p>
 
         {/* CTAs */}
@@ -209,7 +209,7 @@ export default function MSHero({ theme }: MSHeroProps) {
             onClick={() => scrollTo('#ms-contact')}
             className="px-6 py-3.5 rounded-xl font-semibold text-sm bg-teal-500 text-white hover:bg-teal-400 active:scale-95 transition-all duration-200 min-w-[180px]"
           >
-            Get Started Free
+            Join the Waitlist
           </button>
           <button
             onClick={() => scrollTo('#ms-features')}

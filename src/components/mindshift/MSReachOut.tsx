@@ -18,9 +18,9 @@ type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
 const interestOptions = [
   { value: '', label: 'What are you interested in?' },
-  { value: 'personal', label: 'Personal Use' },
-  { value: 'business', label: 'B2B / Company Plan' },
-  { value: 'education', label: 'School / Education' },
+  { value: 'early-access', label: 'Early Access / Beta Testing' },
+  { value: 'feedback', label: 'Share Feedback or Ideas' },
+  { value: 'partnership', label: 'Partnership Opportunity' },
   { value: 'general', label: 'General Inquiry' },
 ]
 
@@ -138,20 +138,20 @@ export default function MSReachOut() {
               </span>
             </div>
             <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight mb-6 leading-tight" style={{ color: 'var(--text-primary)' }}>
-              Ready to{' '}
-              <span className="text-gradient-teal">shift your habits?</span>
+              Interested in{' '}
+              <span className="text-gradient-teal">MindShift?</span>
             </h2>
             <p className="animate-on-scroll delay-300 text-lg leading-relaxed mb-10" style={{ color: 'var(--text-muted)' }}>
-              Whether you're an individual looking to improve your daily routine or
-              an organization wanting to support your team's wellbeing — we'd love to hear from you.
+              We're currently in the prototyping phase and would love to hear from you.
+              Whether you want early access, have feedback, or are interested in partnering with us — reach out!
             </p>
 
             {/* Features list */}
             <ul className="animate-on-scroll delay-400 flex flex-col gap-4" role="list">
               {[
-                'Free personal plan available',
-                'B2B plans with admin dashboard',
-                'Priority support for organizations',
+                'Early access for beta testers',
+                'Customizable app blocking from day one',
+                'Built by developers, for real users',
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm" style={{ color: 'var(--text-muted)' }}>
                   <span

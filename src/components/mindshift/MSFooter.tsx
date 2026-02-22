@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const navLinks = [
   { label: 'Features', href: '#ms-features' },
   { label: 'How It Works', href: '#ms-how-it-works' },
-  { label: 'Who It\'s For', href: '#ms-who-its-for' },
+  { label: 'Why MindShift', href: '#ms-who-its-for' },
   { label: 'Contact', href: '#ms-contact' },
 ]
 
@@ -66,8 +66,8 @@ export default function MSFooter() {
               </span>
             </a>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--text-muted)' }}>
-              A digital wellbeing platform that helps individuals and organizations
-              build healthier habits through app blocking, journaling, and habit tracking.
+              A digital wellbeing app that helps young people break the social media
+              scrolling habit through customizable app blocking and personalized activity suggestions.
             </p>
           </div>
 

@@ -15,31 +15,31 @@ const cards: Card[] = [
         <circle cx="12" cy="7" r="4" />
       </svg>
     ),
-    title: 'For Individuals',
+    title: 'The Problem',
     description:
-      'Take charge of your daily habits. Block distracting apps, journal your thoughts, and track the habits that matter most — all in one beautiful app.',
+      'Many young people aged 14–30 spend hours on social media without realizing it, leading to wasted time, stress, and reduced focus. They struggle to stop endless scrolling and often feel guilty or unproductive.',
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
+        <circle cx="12" cy="12" r="10" />
+        <line x1="15" y1="9" x2="9" y2="15" />
+        <line x1="9" y1="9" x2="15" y2="15" />
       </svg>
     ),
-    title: 'For Companies',
+    title: 'Why Alternatives Fall Short',
     description:
-      'Offer MindShift as a wellbeing benefit to your employees. The admin dashboard lets HR teams track engagement, set team goals, and support mental health at scale.',
+      'Existing solutions like screen time trackers, focus apps, or browser blockers are too generic and lack engaging alternatives. They remind users to stop scrolling but don\'t motivate them with fun, meaningful activities.',
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-        <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-        <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
       </svg>
     ),
-    title: 'For Schools',
+    title: 'Our Advantage',
     description:
-      'Help students stay focused during study hours by blocking distracting apps on their devices. Teachers and administrators can manage policies from a central dashboard.',
+      'We are first movers in combining app-blocking with personalized activity suggestions. As developers, we build in-house — keeping costs low and enabling faster iteration compared to competitors.',
   },
 ]
 
@@ -73,15 +73,15 @@ export default function MSSocialProof() {
         <div className="text-center mb-16">
           <div className="animate-on-scroll delay-100">
             <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-teal-500/10 border border-teal-500/20 text-teal-500 mb-4 tracking-wide uppercase">
-              Who It's For
+              Why MindShift
             </span>
           </div>
           <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
-            Built for <span className="text-gradient-teal">everyone who cares</span>
+            Why <span className="text-gradient-teal">MindShift</span>?
           </h2>
           <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-            Whether you're an individual seeking balance, a company investing
-            in employee wellbeing, or a school protecting students — MindShift adapts to you.
+            We've talked to friends and peers aged 14–30 who all struggle with the same
+            thing — endless scrolling that wastes time and drains energy. MindShift is built to solve this.
           </p>
         </div>
 
@@ -119,8 +119,9 @@ export default function MSSocialProof() {
           >
             <p className="text-lg italic leading-relaxed mb-4" style={{ color: 'var(--text-primary)' }}>
               "We built MindShift because we believe technology should empower people,
-              not enslave them. Our mission is to help everyone — from students to
-              professionals — reclaim their time and build habits that last."
+              not trap them in endless loops. Our goal is to help everyone — especially
+              young people — regain control of their time and replace mindless scrolling
+              with activities that truly feel rewarding."
             </p>
             <p className="text-sm font-medium text-teal-500">— The MindShift Team</p>
           </div>
