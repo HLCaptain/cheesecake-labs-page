@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 
 const navLinks = [
-  { label: 'Features', href: '#features' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Our Philosophy', href: '#why-us' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Features', href: '#ms-features' },
+  { label: 'How It Works', href: '#ms-how-it-works' },
+  { label: 'Who It\'s For', href: '#ms-who-its-for' },
+  { label: 'Contact', href: '#ms-contact' },
 ]
 
 const socialLinks = [
@@ -27,17 +27,17 @@ const socialLinks = [
     ),
   },
   {
-    label: 'GitHub',
+    label: 'Instagram',
     href: '#',
     icon: (
       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
       </svg>
     ),
   },
 ]
 
-export default function Footer() {
+export default function MSFooter() {
   const year = new Date().getFullYear()
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -56,18 +56,18 @@ export default function Footer() {
               href="#"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
               className="inline-flex items-center gap-2.5 mb-4 group"
-              aria-label="CheeseCake Labs — Home"
+              aria-label="MindShift — Home"
             >
-              <span className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-base">
-                🍰
+              <span className="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-base">
+                🧠
               </span>
               <span className="font-semibold text-sm tracking-tight" style={{ color: 'var(--text-primary)' }}>
-                CheeseCake <span className="text-amber-500">Labs</span>
+                Mind<span className="text-teal-500">Shift</span>
               </span>
             </a>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--text-muted)' }}>
-              An AI-powered development studio combining intelligent agents with
-              human craft to build interfaces people love.
+              A digital wellbeing platform that helps individuals and organizations
+              build healthier habits through app blocking, journaling, and habit tracking.
             </p>
           </div>
 
@@ -82,7 +82,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-sm hover:text-amber-500 transition-colors duration-200"
+                    className="text-sm hover:text-teal-500 transition-colors duration-200"
                     style={{ color: 'var(--text-muted)' }}
                   >
                     {link.label}
@@ -91,11 +91,11 @@ export default function Footer() {
               ))}
               <li>
                 <Link
-                  to="/"
-                  className="text-sm hover:text-amber-500 transition-colors duration-200"
+                  to="/cheesecake"
+                  className="text-sm hover:text-teal-500 transition-colors duration-200"
                   style={{ color: 'var(--text-muted)' }}
                 >
-                  MindShift
+                  CheeseCake Labs
                 </Link>
               </li>
             </ul>
@@ -108,10 +108,10 @@ export default function Footer() {
             </h3>
             <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
               <a
-                href="mailto:hello@cheesecakelabs.com"
-                className="text-amber-500/80 hover:text-amber-500 transition-colors duration-200"
+                href="mailto:hello@mindshift.app"
+                className="text-teal-500/80 hover:text-teal-500 transition-colors duration-200"
               >
-                hello@cheesecakelabs.com
+                hello@mindshift.app
               </a>
             </p>
             <div className="flex items-center gap-3">
@@ -120,7 +120,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center hover:text-amber-500 hover:bg-amber-500/10 transition-all duration-200"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center hover:text-teal-500 hover:bg-teal-500/10 transition-all duration-200"
                   style={{ backgroundColor: 'var(--bg-surface)', border: '1px solid var(--border-soft)', color: 'var(--text-muted)' }}
                 >
                   {social.icon}
@@ -133,13 +133,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid var(--border-soft)' }}>
           <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            &copy; {year} CheeseCake Labs. All rights reserved.
+            &copy; {year} MindShift. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs hover:text-amber-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
+            <a href="#" className="text-xs hover:text-teal-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
               Privacy Policy
             </a>
-            <a href="#" className="text-xs hover:text-amber-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
+            <a href="#" className="text-xs hover:text-teal-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
               Terms of Service
             </a>
           </div>
