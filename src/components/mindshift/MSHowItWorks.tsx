@@ -11,31 +11,31 @@ interface Step {
 const steps: Step[] = [
   {
     number: '01',
-    title: 'Download & Sign Up',
-    description: 'Get started in seconds',
+    title: 'Choose Your Apps',
+    description: 'Take control of your screen time',
     detail:
-      'Download MindShift from your app store and create your profile. Set your wellbeing goals — whether it\'s reducing screen time, building a journaling habit, or improving daily routines.',
+      'Select which social media apps you want to block. MindShift lets you customize your blocklist so you only restrict the apps you choose — flexible, precise, and fully in your control.',
   },
   {
     number: '02',
-    title: 'Customize Your Blocklist',
-    description: 'Take control of distractions',
+    title: 'Set Blocking Schedules',
+    description: 'Block apps when it matters most',
     detail:
-      'Choose which apps to block and set focus schedules. MindShift lets you create flexible rules — strict blocks during work hours, gentle nudges in the evening, or full lockdown for deep focus sessions.',
+      'Define specific time ranges for blocking — like nighttime to encourage better sleep, study hours for focus, or whenever you tend to lose track of time. Flexible rules that fit your routine.',
   },
   {
     number: '03',
-    title: 'Journal & Track Habits',
-    description: 'Build consistency, day by day',
+    title: 'Get Activity Suggestions',
+    description: 'Discover something better to do',
     detail:
-      'Use guided prompts to reflect on your mood and goals. Track daily habits with visual streaks and progress charts. MindShift makes it easy to see how small changes add up over time.',
+      'Receive personalized activity recommendations you can schedule throughout your day — like working out from 5–7 PM, reading, or picking up a hobby. When you try to open a blocked app, MindShift suggests these activities instead.',
   },
   {
     number: '04',
-    title: 'Review & Grow',
-    description: 'Insights that drive change',
+    title: 'Build Better Habits',
+    description: 'Make the shift stick',
     detail:
-      'Weekly and monthly reports show your screen time trends, journaling consistency, and habit streaks. For organizations, the admin dashboard provides aggregated insights to support employee or student wellbeing.',
+      'Over time, MindShift helps you build a healthier lifestyle by replacing screen time with enjoyable, purposeful activities. Track your progress and see how small changes add up to lasting well-being.',
   },
 ]
 

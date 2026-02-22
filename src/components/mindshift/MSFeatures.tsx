@@ -26,10 +26,10 @@ const features: Feature[] = [
         <path d="M7 11V7a5 5 0 0110 0v4" />
       </svg>
     ),
-    title: 'Smart App Blocking',
+    title: 'Customizable App Blocking',
     description:
-      'Block distracting social media and apps during focus hours. Set custom schedules, whitelist essentials, and take back control of your screen time.',
-    tag: 'Focus',
+      'Choose exactly which social media apps to block and set specific time ranges — block apps at night to encourage sleep, during study hours for focus, or whenever you want a distraction-free window.',
+    tag: 'Core Feature',
   },
   {
     icon: (
@@ -44,14 +44,14 @@ const features: Feature[] = [
         className="w-6 h-6"
         aria-hidden="true"
       >
-        <path d="M12 20h9" />
-        <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 01-3.46 0" />
       </svg>
     ),
-    title: 'Guided Journaling',
+    title: 'Smart Activity Prompts',
     description:
-      'Reflect on your day with guided prompts and mood tracking. Build a journaling habit that helps you process emotions and gain clarity.',
-    tag: 'Reflect',
+      'When you try to open a blocked app, MindShift suggests a scheduled activity instead — giving you a positive, engaging alternative right when you need it most.',
+    tag: 'Motivate',
   },
   {
     icon: (
@@ -66,13 +66,14 @@ const features: Feature[] = [
         className="w-6 h-6"
         aria-hidden="true"
       >
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
       </svg>
     ),
-    title: 'Habit Tracking',
+    title: 'Scheduled Activity Suggestions',
     description:
-      'Set daily goals, build streaks, and visualize your progress over time. From hydration to exercise, track the habits that matter most to you.',
-    tag: 'Grow',
+      'Receive and schedule personalized habit recommendations — like working out from 5–7 PM or reading before bed. MindShift fills your free time with activities that feel rewarding, not empty.',
+    tag: 'Engage',
   },
 ]
 
@@ -111,11 +112,11 @@ export default function MSFeatures() {
           </div>
           <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
             Tools for a{' '}
-            <span className="text-gradient-teal">healthier digital life</span>
+            <span className="text-gradient-teal">balanced digital life</span>
           </h2>
           <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-            MindShift combines app blocking, journaling, and habit tracking
-            into one seamless wellbeing platform.
+            MindShift goes beyond generic screen time trackers by combining customizable
+            app blocking with personalized activity recommendations.
           </p>
         </div>
 

@@ -15,31 +15,21 @@ const cards: Card[] = [
         <circle cx="12" cy="7" r="4" />
       </svg>
     ),
-    title: 'For Individuals',
+    title: 'The Challenge',
     description:
-      'Take charge of your daily habits. Block distracting apps, journal your thoughts, and track the habits that matter most — all in one beautiful app.',
+      'Many people spend more time on social media than they intend to, leaving less room for the activities they actually enjoy. MindShift is here to help you find that balance.',
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
+        <circle cx="12" cy="12" r="10" />
+        <line x1="15" y1="9" x2="9" y2="15" />
+        <line x1="9" y1="9" x2="15" y2="15" />
       </svg>
     ),
-    title: 'For Companies',
+    title: 'Why Alternatives Fall Short',
     description:
-      'Offer MindShift as a wellbeing benefit to your employees. The admin dashboard lets HR teams track engagement, set team goals, and support mental health at scale.',
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-        <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-        <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
-      </svg>
-    ),
-    title: 'For Schools',
-    description:
-      'Help students stay focused during study hours by blocking distracting apps on their devices. Teachers and administrators can manage policies from a central dashboard.',
+      'Existing tools like screen time trackers or browser blockers tend to fade into the background after a few weeks. They don\'t enforce real habit changes. MindShift is different — it actively blocks apps and takes action when you open them, keeping you on track.',
   },
 ]
 
@@ -73,20 +63,20 @@ export default function MSSocialProof() {
         <div className="text-center mb-16">
           <div className="animate-on-scroll delay-100">
             <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-teal-500/10 border border-teal-500/20 text-teal-500 mb-4 tracking-wide uppercase">
-              Who It's For
+              Our Mission
             </span>
           </div>
           <h2 className="animate-on-scroll delay-200 text-4xl sm:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
-            Built for <span className="text-gradient-teal">everyone who cares</span>
+            Why <span className="text-gradient-teal">MindShift</span>?
           </h2>
           <p className="animate-on-scroll delay-300 max-w-xl mx-auto text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-            Whether you're an individual seeking balance, a company investing
-            in employee wellbeing, or a school protecting students — MindShift adapts to you.
+            We noticed that many people around us wanted to spend less time on social media
+            but struggled to make it happen. MindShift is our answer to that challenge.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
           {cards.map((card, i) => {
             const delayClass = ['delay-200', 'delay-300', 'delay-400'][i]
             return (
@@ -119,8 +109,8 @@ export default function MSSocialProof() {
           >
             <p className="text-lg italic leading-relaxed mb-4" style={{ color: 'var(--text-primary)' }}>
               "We built MindShift because we believe technology should empower people,
-              not enslave them. Our mission is to help everyone — from students to
-              professionals — reclaim their time and build habits that last."
+              not hold them back. Our goal is to help everyone regain control of their
+              time and discover activities that truly feel rewarding."
             </p>
             <p className="text-sm font-medium text-teal-500">— The MindShift Team</p>
           </div>
