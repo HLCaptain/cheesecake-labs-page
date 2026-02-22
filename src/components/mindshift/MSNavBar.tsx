@@ -181,7 +181,7 @@ export default function MSNavBar({ theme, onToggleTheme }: MSNavBarProps) {
               style={{ color: 'var(--text-muted)' }}
               onClick={() => setMenuOpen(false)}
             >
-              CheeseCake Labs
+              🍰 CheeseCake Labs
             </Link>
           </li>
           <li>
