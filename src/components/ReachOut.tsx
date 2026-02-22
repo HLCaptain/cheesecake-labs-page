@@ -121,7 +121,8 @@ export default function ReachOut() {
       } else {
         setFormState('error')
       }
-    } catch {
+    } catch (err) {
+      console.error('Form submission failed:', err)
       setFormState('error')
     }
   }
