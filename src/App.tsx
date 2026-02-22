@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import MindShiftPage from './pages/MindShiftPage'
 import CheeseCakePage from './pages/CheeseCakePage'
 
@@ -26,7 +26,7 @@ function App() {
   const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <div className="min-h-screen font-sans transition-colors duration-200" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
         <Routes>
@@ -35,7 +35,7 @@ function App() {
           <Route path="/cheesecake" element={<CheeseCakePage theme={theme} onToggleTheme={toggleTheme} />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
