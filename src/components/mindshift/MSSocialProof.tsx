@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { useCardTilt } from '../../hooks/useCardTilt'
 
 interface Card {
   icon: React.ReactNode
@@ -35,7 +34,6 @@ const cards: Card[] = [
 
 export default function MSSocialProof() {
   const sectionRef = useRef<HTMLElement>(null)
-  const { handleMouseMove: handleTiltMove, handleMouseLeave: handleTiltLeave } = useCardTilt()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,10 +84,7 @@ export default function MSSocialProof() {
                 style={{
                   backgroundColor: 'var(--bg-surface)',
                   border: '1px solid var(--border-soft)',
-                  willChange: 'transform',
                 }}
-                onMouseMove={handleTiltMove}
-                onMouseLeave={handleTiltLeave}
               >
                 <div className="mb-5 w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/15 flex items-center justify-center text-teal-500 group-hover:bg-teal-500/15 group-hover:border-teal-500/25 transition-all duration-300">
                   {card.icon}

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { useCardTilt } from '../../hooks/useCardTilt'
 
 interface Feature {
   icon: React.ReactNode
@@ -79,7 +78,6 @@ const features: Feature[] = [
 
 export default function MSFeatures() {
   const sectionRef = useRef<HTMLElement>(null)
-  const { handleMouseMove, handleMouseLeave } = useCardTilt()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -131,10 +129,7 @@ export default function MSFeatures() {
                 style={{
                   backgroundColor: 'var(--bg-surface)',
                   border: '1px solid var(--border-soft)',
-                  willChange: 'transform',
                 }}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
               >
                 {/* Icon */}
                 <div className="mb-6 w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/15 flex items-center justify-center text-teal-500 group-hover:bg-teal-500/15 group-hover:border-teal-500/25 transition-all duration-300">

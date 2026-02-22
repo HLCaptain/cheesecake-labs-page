@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import Hero from '../components/Hero'
 import Features from '../components/Features'
@@ -12,6 +13,12 @@ interface CheeseCakePageProps {
 }
 
 export default function CheeseCakePage({ theme, onToggleTheme }: CheeseCakePageProps) {
+  useEffect(() => {
+    document.title = '🍰 CheeseCake Labs — Next-Gen AI Development'
+    const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
+    if (link) link.href = '/favicon.svg'
+  }, [])
+
   return (
     <>
       <NavBar theme={theme} onToggleTheme={onToggleTheme} />

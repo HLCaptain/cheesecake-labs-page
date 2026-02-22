@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="CheeseCake Labs — AI-powered outsourcing for enterprise frontend and app development. Ship beautiful products faster with our AI agents and elite developers." />
     <meta name="keywords" content="AI development, enterprise software, frontend development, outsourcing, React, mobile apps" />
@@ -13,8 +13,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <title>CheeseCake Labs — Next-Gen AI Development</title>
-    <!-- Plausible Analytics — uncomment and replace your-domain.com with your domain -->
-    <!-- <script defer data-domain="your-domain.com" src="https://plausible.io/js/script.js"></script> -->
+    <script>
+      // Plausible Analytics — loaded dynamically from VITE env variable at build time
+      (function() {
+        var domain = '%VITE_PLAUSIBLE_DOMAIN%';
+        if (domain && domain !== '' && !domain.startsWith('%')) {
+          var script = document.createElement('script');
+          script.defer = true;
+          script.setAttribute('data-domain', domain);
+          script.src = 'https://plausible.io/js/script.js';
+          document.head.appendChild(script);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

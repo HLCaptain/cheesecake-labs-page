@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import MSNavBar from '../components/mindshift/MSNavBar'
 import MSHero from '../components/mindshift/MSHero'
 import MSFeatures from '../components/mindshift/MSFeatures'
@@ -12,6 +13,12 @@ interface MindShiftPageProps {
 }
 
 export default function MindShiftPage({ theme, onToggleTheme }: MindShiftPageProps) {
+  useEffect(() => {
+    document.title = '🧠 MindShift — Digital Wellbeing'
+    const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
+    if (link) link.href = '/favicon-mindshift.svg'
+  }, [])
+
   return (
     <>
       <MSNavBar theme={theme} onToggleTheme={onToggleTheme} />

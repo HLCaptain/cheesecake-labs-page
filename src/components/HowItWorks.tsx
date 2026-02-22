@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { useCardTilt } from '../hooks/useCardTilt'
 
 interface Step {
   number: string
@@ -41,7 +40,6 @@ const steps: Step[] = [
 
 export default function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null)
-  const { handleMouseMove, handleMouseLeave } = useCardTilt()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -97,10 +95,7 @@ export default function HowItWorks() {
                 style={{
                   backgroundColor: 'var(--bg-surface)',
                   border: '1px solid var(--border-soft)',
-                  willChange: 'transform',
                 }}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
               >
                 <div className="flex items-start gap-5">
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">

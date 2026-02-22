@@ -100,7 +100,7 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
           ))}
           <li>
             <Link
-              to="/"
+              to="/mindshift"
               className="text-sm hover:text-amber-500 transition-colors duration-200 relative group"
               style={{ color: 'var(--text-muted)' }}
             >
@@ -176,7 +176,7 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
           ))}
           <li>
             <Link
-              to="/"
+              to="/mindshift"
               className="text-sm hover:text-amber-500 transition-colors duration-200 block py-1"
               style={{ color: 'var(--text-muted)' }}
               onClick={() => setMenuOpen(false)}
