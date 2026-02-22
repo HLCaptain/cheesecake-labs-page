@@ -31,7 +31,7 @@ export default function Hero({ theme }: HeroProps) {
 
     const getThemeColors = () => {
       return themeRef.current === 'dark' 
-        ? { color: [245, 158, 11] as [number, number, number], baseAlpha: 0.2 }
+        ? { color: [245, 158, 11] as [number, number, number], baseAlpha: 0.25 }
         : { color: [31, 41, 55] as [number, number, number], baseAlpha: 0.5 }
     }
 
