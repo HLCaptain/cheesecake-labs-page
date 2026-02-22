@@ -151,7 +151,7 @@ export default function Hero({ theme }: HeroProps) {
           className="hero-fade-up max-w-2xl text-lg sm:text-xl leading-relaxed mb-10"
           style={{ color: 'var(--text-muted)' }}
         >
-          CheeseCake Labs pairs{' '}
+          🍰 CheeseCake Labs pairs{' '}
           <span className="font-medium" style={{ color: 'var(--text-primary)' }}>AI agents</span> with{' '}
           <span className="font-medium" style={{ color: 'var(--text-primary)' }}>senior human developers</span> to
           craft polished frontends and apps — with an obsessive eye for detail. We also help teams

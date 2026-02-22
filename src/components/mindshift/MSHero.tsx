@@ -196,7 +196,7 @@ export default function MSHero({ theme }: MSHeroProps) {
           className="hero-fade-up max-w-2xl text-lg sm:text-xl leading-relaxed mb-10"
           style={{ color: 'var(--text-muted)' }}
         >
-          MindShift helps you{' '}
+          🧠 MindShift helps you{' '}
           <span className="font-medium" style={{ color: 'var(--text-primary)' }}>build a healthier daily routine</span> by
           blocking distracting apps during set times and replacing them with{' '}
           <span className="font-medium" style={{ color: 'var(--text-primary)' }}>personalized activity suggestions</span> —

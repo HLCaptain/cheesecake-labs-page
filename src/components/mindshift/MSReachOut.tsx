@@ -92,7 +92,7 @@ export default function MSReachOut() {
     setErrors((prev) => ({ ...prev, [name]: newErrors[name as keyof FormErrors] }))
   }
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setTouched({ name: true, email: true, interest: true, description: true })
     const newErrors = validate(formData)
@@ -100,12 +100,32 @@ export default function MSReachOut() {
     if (Object.keys(newErrors).length > 0) return
 
     setFormState('submitting')
-    setTimeout(() => {
-      setFormState('success')
-      setFormData(INITIAL_FORM)
-      setTouched({})
-      setErrors({})
-    }, 1500)
+
+    const formspreeId = import.meta.env.VITE_FORMSPREE_MINDSHIFT_ID
+    if (!formspreeId) {
+      console.warn('VITE_FORMSPREE_MINDSHIFT_ID is not set. Form submission disabled.')
+      setFormState('error')
+      return
+    }
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (res.ok) {
+        setFormState('success')
+        setFormData(INITIAL_FORM)
+        setTouched({})
+        setErrors({})
+      } else {
+        setFormState('error')
+      }
+    } catch (err) {
+      console.error('Form submission failed:', err)
+      setFormState('error')
+    }
   }
 
   const fieldStyle = {
@@ -190,6 +210,26 @@ export default function MSReachOut() {
                     className="mt-4 px-5 py-2.5 text-sm font-medium rounded-lg bg-teal-500/10 border border-teal-500/20 text-teal-500 hover:bg-teal-500/20 transition-colors duration-200"
                   >
                     Send another message
+                  </button>
+                </div>
+              ) : formState === 'error' ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
+                  <div className="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 mb-2">
+                    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="15" y1="9" x2="9" y2="15" />
+                      <line x1="9" y1="9" x2="15" y2="15" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Something went wrong</h3>
+                  <p className="text-sm max-w-xs" style={{ color: 'var(--text-muted)' }}>
+                    Please try again later or reach out via social media.
+                  </p>
+                  <button
+                    onClick={() => setFormState('idle')}
+                    className="mt-4 px-5 py-2.5 text-sm font-medium rounded-lg bg-teal-500/10 border border-teal-500/20 text-teal-500 hover:bg-teal-500/20 transition-colors duration-200"
+                  >
+                    Try again
                   </button>
                 </div>
               ) : (
@@ -312,9 +352,8 @@ export default function MSReachOut() {
                     )}
                   </button>
 
+                  {/* TODO: Add Privacy Policy link when applicable */}
                   <p className="mt-4 text-xs text-center" style={{ color: 'var(--text-muted)' }}>
-                    By submitting, you agree to our{' '}
-                    <a href="#" className="text-teal-500/70 hover:text-teal-500 transition-colors">Privacy Policy</a>.
                     No spam — ever.
                   </p>
                 </form>
