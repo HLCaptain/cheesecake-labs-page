@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const navLinks = [
-  { label: 'Features', href: '#features' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Features', href: '#ms-features' },
+  { label: 'How It Works', href: '#ms-how-it-works' },
+  { label: 'Contact', href: '#ms-contact' },
 ]
 
-interface NavBarProps {
+interface MSNavBarProps {
   theme: 'dark' | 'light'
   onToggleTheme: () => void
 }
@@ -36,7 +36,7 @@ function MoonIcon() {
   )
 }
 
-export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
+export default function MSNavBar({ theme, onToggleTheme }: MSNavBarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -70,16 +70,16 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
           className="flex items-center gap-2.5 group"
-          aria-label="CheeseCake Labs — Home"
+          aria-label="MindShift — Home"
         >
           <span
-            className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-base transition-all duration-300 group-hover:bg-amber-500/20 group-hover:border-amber-500/40"
+            className="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-base transition-all duration-300 group-hover:bg-teal-500/20 group-hover:border-teal-500/40"
             aria-hidden="true"
           >
-            🍰
+            🧠
           </span>
           <span className="font-semibold text-sm tracking-tight" style={{ color: 'var(--text-primary)' }}>
-            CheeseCake <span className="text-amber-500">Labs</span>
+            Mind<span className="text-teal-500">Shift</span>
           </span>
         </a>
 
@@ -90,22 +90,22 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
               <a
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm hover:text-amber-500 transition-colors duration-200 relative group"
+                className="text-sm hover:text-teal-500 transition-colors duration-200 relative group"
                 style={{ color: 'var(--text-muted)' }}
               >
                 {link.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-500 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-teal-500 transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
           <li>
             <Link
-              to="/"
-              className="text-sm hover:text-amber-500 transition-colors duration-200 relative group"
+              to="/cheesecake"
+              className="text-sm hover:text-teal-500 transition-colors duration-200 relative group"
               style={{ color: 'var(--text-muted)' }}
             >
-              MindShift
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-500 transition-all duration-300 group-hover:w-full" />
+              CheeseCake Labs
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-teal-500 transition-all duration-300 group-hover:w-full" />
             </Link>
           </li>
         </ul>
@@ -115,18 +115,18 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
           <button
             type="button"
             onClick={onToggleTheme}
-            className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-amber-500/10"
+            className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-teal-500/10"
             style={{ border: '1px solid var(--border-soft)', color: 'var(--text-muted)' }}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
           <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, '#contact')}
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-amber-500 text-[#0a0a0f] hover:bg-amber-400 active:scale-95 transition-all duration-200"
+            href="#ms-contact"
+            onClick={(e) => handleNavClick(e, '#ms-contact')}
+            className="px-4 py-2 text-sm font-medium rounded-lg bg-teal-500 text-white hover:bg-teal-400 active:scale-95 transition-all duration-200"
           >
-            Get in Touch
+            Get Started
           </a>
         </div>
 
@@ -135,7 +135,7 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
           <button
             type="button"
             onClick={onToggleTheme}
-            className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-amber-500/10"
+            className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-teal-500/10"
             style={{ border: '1px solid var(--border-soft)', color: 'var(--text-muted)' }}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
@@ -167,7 +167,7 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
               <a
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm hover:text-amber-500 transition-colors duration-200 block py-1"
+                className="text-sm hover:text-teal-500 transition-colors duration-200 block py-1"
                 style={{ color: 'var(--text-muted)' }}
               >
                 {link.label}
@@ -176,21 +176,21 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
           ))}
           <li>
             <Link
-              to="/"
-              className="text-sm hover:text-amber-500 transition-colors duration-200 block py-1"
+              to="/cheesecake"
+              className="text-sm hover:text-teal-500 transition-colors duration-200 block py-1"
               style={{ color: 'var(--text-muted)' }}
               onClick={() => setMenuOpen(false)}
             >
-              MindShift
+              CheeseCake Labs
             </Link>
           </li>
           <li>
             <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
-              className="inline-block px-4 py-2 text-sm font-medium rounded-lg bg-amber-500 text-[#0a0a0f] hover:bg-amber-400 transition-all duration-200 mt-2"
+              href="#ms-contact"
+              onClick={(e) => handleNavClick(e, '#ms-contact')}
+              className="inline-block px-4 py-2 text-sm font-medium rounded-lg bg-teal-500 text-white hover:bg-teal-400 transition-all duration-200 mt-2"
             >
-              Get in Touch
+              Get Started
             </a>
           </li>
         </ul>

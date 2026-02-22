@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
-import NavBar from './components/NavBar'
-import Hero from './components/Hero'
-import Features from './components/Features'
-import HowItWorks from './components/HowItWorks'
-import SocialProof from './components/SocialProof'
-import ReachOut from './components/ReachOut'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import MindShiftPage from './pages/MindShiftPage'
+import CheeseCakePage from './pages/CheeseCakePage'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
 
 function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -19,18 +23,18 @@ function App() {
     window.localStorage.setItem('theme', theme)
   }, [theme])
 
+  const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+
   return (
-    <div className="min-h-screen font-sans transition-colors duration-200" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
-      <NavBar theme={theme} onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))} />
-      <main>
-        <Hero theme={theme} />
-        <Features />
-        <HowItWorks />
-        <SocialProof />
-        <ReachOut />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="min-h-screen font-sans transition-colors duration-200" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+        <Routes>
+          <Route path="/" element={<MindShiftPage theme={theme} onToggleTheme={toggleTheme} />} />
+          <Route path="/cheesecake" element={<CheeseCakePage theme={theme} onToggleTheme={toggleTheme} />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
