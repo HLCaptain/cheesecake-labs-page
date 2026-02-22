@@ -197,7 +197,7 @@ export default function MSHero({ theme }: MSHeroProps) {
           style={{ color: 'var(--text-muted)' }}
         >
           MindShift helps you{' '}
-          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>build a healthier relationship with social media</span> by
+          <span className="font-medium" style={{ color: 'var(--text-primary)' }}>build a healthier daily routine</span> by
           blocking distracting apps during set times and replacing them with{' '}
           <span className="font-medium" style={{ color: 'var(--text-primary)' }}>personalized activity suggestions</span> —
           so you can spend your time on what truly matters.
