@@ -181,7 +181,7 @@ export default function NavBar({ theme, onToggleTheme }: NavBarProps) {
               style={{ color: 'var(--text-muted)' }}
               onClick={() => setMenuOpen(false)}
             >
-              MindShift
+              🧠 MindShift
             </Link>
           </li>
           <li>
