@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, type FormEvent, type ChangeEvent } from 'react'
+import { Link } from 'react-router-dom'
 
 interface FormData {
   name: string
@@ -354,7 +355,11 @@ export default function MSReachOut() {
 
                   {/* TODO: Add Privacy Policy link when applicable */}
                   <p className="mt-4 text-xs text-center" style={{ color: 'var(--text-muted)' }}>
-                    No spam — ever.
+                    No spam — ever. See our{' '}
+                    <Link to="/mindshift/privacy" className="text-teal-500 hover:text-teal-400 underline underline-offset-2">
+                      Privacy Policy
+                    </Link>
+                    .
                   </p>
                 </form>
               )}
