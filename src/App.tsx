@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import MindShiftPage from './pages/MindShiftPage'
+import MindShiftPrivacyPage from './pages/MindShiftPrivacyPage'
+import MindShiftTermsPage from './pages/MindShiftTermsPage'
 import CheeseCakePage from './pages/CheeseCakePage'
 
 function ScrollToTop() {
@@ -32,6 +34,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/mindshift" replace />} />
           <Route path="/mindshift" element={<MindShiftPage theme={theme} onToggleTheme={toggleTheme} />} />
+          <Route path="/mindshift/privacy" element={<MindShiftPrivacyPage theme={theme} onToggleTheme={toggleTheme} />} />
+          <Route path="/mindshift/terms" element={<MindShiftTermsPage theme={theme} onToggleTheme={toggleTheme} />} />
           <Route path="/cheesecake" element={<CheeseCakePage theme={theme} onToggleTheme={toggleTheme} />} />
         </Routes>
       </div>

@@ -130,16 +130,14 @@ export default function MSFooter() {
             &copy; {year} MindShift. All rights reserved.
           </p>
           {/* TODO: Add Privacy Policy and Terms of Service when applicable */}
-          {/*
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs hover:text-teal-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
+            <Link to="/mindshift/privacy" className="text-xs hover:text-teal-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
               Privacy Policy
-            </a>
-            <a href="#" className="text-xs hover:text-teal-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
-              Terms of Service
-            </a>
+            </Link>
+            <Link to="/mindshift/terms" className="text-xs hover:text-teal-500 transition-colors duration-200" style={{ color: 'var(--text-muted)' }}>
+              Terms &amp; Conditions
+            </Link>
           </div>
-          */}
         </div>
       </div>
     </footer>
