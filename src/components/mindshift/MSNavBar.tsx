@@ -64,12 +64,12 @@ export default function MSNavBar({ theme, onToggleTheme }: MSNavBarProps) {
       }`}
       style={scrolled ? { backgroundColor: 'color-mix(in srgb, var(--bg-primary) 90%, transparent)', borderBottom: '1px solid var(--border-soft)' } : undefined}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
         {/* Logo */}
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-          className="flex items-center gap-2.5 group"
+          className="flex min-w-0 items-center gap-2.5 group"
           aria-label="MindShift — Home"
         >
           <span
@@ -78,7 +78,7 @@ export default function MSNavBar({ theme, onToggleTheme }: MSNavBarProps) {
           >
             🧠
           </span>
-          <span className="font-semibold text-sm tracking-tight" style={{ color: 'var(--text-primary)' }}>
+          <span className="truncate font-semibold text-sm tracking-tight" style={{ color: 'var(--text-primary)' }}>
             Mind<span className="text-teal-500">Shift</span>
           </span>
         </a>
@@ -115,7 +115,7 @@ export default function MSNavBar({ theme, onToggleTheme }: MSNavBarProps) {
           <button
             type="button"
             onClick={onToggleTheme}
-            className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-teal-500/10"
+            className="w-11 h-11 md:w-9 md:h-9 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-teal-500/10"
             style={{ border: '1px solid var(--border-soft)', color: 'var(--text-muted)' }}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
@@ -131,18 +131,18 @@ export default function MSNavBar({ theme, onToggleTheme }: MSNavBarProps) {
         </div>
 
         {/* Mobile hamburger */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={onToggleTheme}
-            className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-teal-500/10"
+            className="w-11 h-11 md:w-9 md:h-9 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-teal-500/10"
             style={{ border: '1px solid var(--border-soft)', color: 'var(--text-muted)' }}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
           <button
-            className="flex flex-col gap-1.5 p-2 rounded-md transition-colors"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-md transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}

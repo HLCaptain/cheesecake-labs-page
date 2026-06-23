@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test:e2e": "npx --yes playwright test",
+    "test:e2e:install": "npx --yes playwright install --with-deps chromium"
   },
   "dependencies": {
     "posthog-js": "^1.352.0",

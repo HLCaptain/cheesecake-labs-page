@@ -114,7 +114,7 @@ export default function MSFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center hover:text-teal-500 hover:bg-teal-500/10 transition-all duration-200"
+                  className="w-11 h-11 rounded-lg flex items-center justify-center hover:text-teal-500 hover:bg-teal-500/10 transition-all duration-200"
                   style={{ backgroundColor: 'var(--bg-surface)', border: '1px solid var(--border-soft)', color: 'var(--text-muted)' }}
                 >
                   {social.icon}
