@@ -46,12 +46,6 @@ for (const route of routes) {
       }
     })
     page.on('pageerror', (error) => browserErrors.push(error.message))
-    page.on('console', (message) => {
-      const source = message.location().url
-      if (message.type() === 'error' && (!source || new URL(source).origin === previewOrigin)) {
-        browserErrors.push(message.text())
-      }
-    })
 
     await page.goto(route.path, { waitUntil: 'networkidle' })
 

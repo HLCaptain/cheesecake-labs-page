@@ -19,6 +19,11 @@ jobs:
     name: Build and browser tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      VITE_PUBLIC_POSTHOG_KEY: ${{ vars.VITE_PUBLIC_POSTHOG_KEY }}
+      VITE_PUBLIC_POSTHOG_HOST: ${{ vars.VITE_PUBLIC_POSTHOG_HOST }}
+      VITE_FORMSPREE_CHEESECAKE_ID: ${{ vars.VITE_FORMSPREE_CHEESECAKE_ID }}
+      VITE_FORMSPREE_MINDSHIFT_ID: ${{ vars.VITE_FORMSPREE_MINDSHIFT_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -32,8 +37,28 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Require deployment configuration
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          for name in VITE_PUBLIC_POSTHOG_KEY VITE_FORMSPREE_CHEESECAKE_ID VITE_FORMSPREE_MINDSHIFT_ID; do
+            if [[ -z "${!name}" ]]; then
+              echo "::error::Missing repository variable $name"
+              exit 1
+            fi
+          done
+
       - name: Build
         run: npm run build
+
+      - name: Verify configured values in build
+        run: |
+          for name in VITE_PUBLIC_POSTHOG_KEY VITE_PUBLIC_POSTHOG_HOST VITE_FORMSPREE_CHEESECAKE_ID VITE_FORMSPREE_MINDSHIFT_ID; do
+            value="${!name}"
+            if [[ -n "$value" ]] && ! grep -rFq -- "$value" dist; then
+              echo "::error::$name is configured but missing from dist"
+              exit 1
+            fi
+          done
 
       - name: Install Chromium
         run: npm run test:e2e:install
