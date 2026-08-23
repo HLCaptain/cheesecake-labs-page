@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { setRouteMetadata } from '../routeMetadata'
 
 interface MindShiftPrivacyPageProps {
   theme: 'dark' | 'light'
@@ -8,9 +9,11 @@ interface MindShiftPrivacyPageProps {
 
 export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShiftPrivacyPageProps) {
   useEffect(() => {
-    document.title = 'Privacy Policy — MindShift'
-    const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
-    if (link) link.href = `${import.meta.env.BASE_URL}favicon-mindshift.svg`
+    setRouteMetadata({
+      title: 'Privacy Policy — MindShift',
+      description: 'How MindShift handles device-local data, optional Pro sync, subscriptions, diagnostics, and account deletion.',
+      favicon: `${import.meta.env.BASE_URL}favicon-mindshift.svg`,
+    })
   }, [])
 
   const year = new Date().getFullYear()
@@ -32,17 +35,18 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
             </span>
           </Link>
           <button
+            type="button"
             onClick={onToggleTheme}
-            className="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-teal-500/10 transition-colors duration-200"
+            className="w-11 h-11 rounded-lg flex items-center justify-center hover:bg-teal-500/10 transition-colors duration-200"
             style={{ color: 'var(--text-muted)' }}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? (
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.95 7.95l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             ) : (
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             )}
@@ -65,7 +69,7 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
           Privacy Policy
         </h1>
         <p className="text-sm mb-12" style={{ color: 'var(--text-muted)' }}>
-          Last updated: March {year}
+          Last updated: August 23, 2026
         </p>
 
         <div className="space-y-10 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
@@ -78,16 +82,7 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
               MindShift ("we", "our", or "us") is a digital wellbeing application designed to help you build healthier
               habits through customizable app blocking and personalized activity suggestions. This Privacy Policy
               explains how we collect, use, and protect your information when you use the MindShift mobile application
-              (the "App"), available on the{' '}
-              <a
-                href="https://play.google.com/store"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-500 hover:text-teal-400 underline underline-offset-2"
-              >
-                Google Play Store
-              </a>
-              .
+              (the "App") on Android or iOS and the MindShift pages on this website.
             </p>
             <p className="mt-3">
               We are committed to protecting your privacy and complying with the General Data Protection Regulation
@@ -118,62 +113,68 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
             </h2>
 
             <h3 className="text-base font-medium mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
-              3.1 Locally Stored Data
+              3.1 Account and sign-in data
             </h3>
             <p>
-              MindShift stores all your personal preferences, app blocking schedules, activity suggestions, and usage
-              data <strong style={{ color: 'var(--text-primary)' }}>locally on your device</strong>. This data never
-              leaves your device and is not transmitted to our servers or any third parties. This includes:
-            </p>
-            <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
-              <li>App blocking configurations and schedules</li>
-              <li>Activity preferences and suggestions</li>
-              <li>Usage statistics and habit tracking data</li>
-              <li>App settings and customization preferences</li>
-            </ul>
-
-            <h3 className="text-base font-medium mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
-              3.2 Crash and Debug Analytics
-            </h3>
-            <p>
-              To improve the stability and performance of MindShift, we collect anonymized crash reports and debug
-              analytics. This data may include:
-            </p>
-            <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
-              <li>Device type and operating system version</li>
-              <li>App version and build number</li>
-              <li>Crash logs and error stack traces</li>
-              <li>General usage patterns (e.g., which features are used most frequently)</li>
-            </ul>
-            <p className="mt-2">
-              This data is collected in an anonymized form and cannot be used to personally identify you. The legal
-              basis for this processing under GDPR is our <strong style={{ color: 'var(--text-primary)' }}>legitimate interest</strong> (Article
-              6(1)(f) GDPR) in maintaining and improving the App.
+              When you sign in with Google or Apple, Supabase Auth processes your account identifier, provider
+              identity, email address when the provider supplies it, session data, and a MindShift account UUID. We
+              use that UUID to keep account-bound data separated and to connect subscription access to the right
+              account.
             </p>
 
             <h3 className="text-base font-medium mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
-              3.3 Subscription Data (Future)
+              3.2 Device-local data
+            </h3>
+            <p>MindShift keeps the following data on your device:</p>
+            <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
+              <li>Goals, habits, tasks, routines, activity suggestions, completions, and journal entries.</li>
+              <li>App preferences, onboarding state, diagnostics consent, and sync preference.</li>
+              <li>Device-owned blocking and usage history.</li>
+              <li>Block rules, interception events, and usage statistics unless you explicitly enable Pro sync.</li>
+            </ul>
+
+            <h3 className="text-base font-medium mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
+              3.3 Optional Pro sync
             </h3>
             <p>
-              In the future, MindShift may offer subscription-based features managed through RevenueCat. If
-              subscriptions are introduced, RevenueCat may process:
+              Cloud sync is off by default and requires a signed-in account, active Pro access, and your explicit
+              opt-in. When enabled, Supabase stores your block rules, block-interception events, and app-usage
+              statistics under your account UUID. Disabling sync stops automatic synchronization; use account
+              deletion to remove the account-bound cloud copy.
             </p>
-            <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
-              <li>An anonymous user identifier for subscription management</li>
-              <li>Purchase history and subscription status</li>
-              <li>Transaction receipts (processed through Google Play)</li>
-            </ul>
-            <p className="mt-2">
-              RevenueCat acts as a data processor on our behalf. You can review RevenueCat's privacy policy at{' '}
-              <a
-                href="https://www.revenuecat.com/privacy/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-500 hover:text-teal-400 underline underline-offset-2"
-              >
+
+            <h3 className="text-base font-medium mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
+              3.4 Subscriptions
+            </h3>
+            <p>
+              Apple or Google processes purchases and payment details. RevenueCat processes your MindShift account
+              UUID, receipts, purchase history, subscription status, entitlements, and limited diagnostics needed to
+              provide and restore Pro access. Optional subscriber attributes are sent only while Diagnostics is
+              enabled. RevenueCat's privacy policy is available at{' '}
+              <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-400 underline underline-offset-2">
                 revenuecat.com/privacy
-              </a>
-              . We will update this Privacy Policy before introducing subscription features.
+              </a>.
+            </p>
+
+            <h3 className="text-base font-medium mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
+              3.5 Diagnostics
+            </h3>
+            <p>
+              When Diagnostics is enabled, Firebase Analytics, Firebase Crashlytics, and Kotzilla may process an app
+              instance or rotated client identifier, app version, platform and device information, feature events,
+              crash logs, and error details. MindShift does not intentionally put journal text, activity text, email
+              addresses, or selected-app identifiers into analytics events. You can change the Diagnostics preference
+              in the App.
+            </p>
+
+            <h3 className="text-base font-medium mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
+              3.6 Website data
+            </h3>
+            <p>
+              When configured, the website sends contact-form submissions to Formspree and uses PostHog for
+              landing-page analytics. Do not put sensitive health, journal, or account information in the contact
+              form. The public account-deletion page can send your account email, sign-in provider, and deletion
+              request to Formspree so support can verify ownership and fulfill the request.
             </p>
           </section>
 
@@ -182,15 +183,17 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
             <h2 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>
               4. How We Use Your Data
             </h2>
-            <p>We use the limited data we collect for the following purposes:</p>
+            <p>We process data only as needed for the following purposes:</p>
             <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
+              <li><strong style={{ color: 'var(--text-primary)' }}>Account access:</strong> Authenticating you and keeping account data separated.</li>
+              <li><strong style={{ color: 'var(--text-primary)' }}>Optional sync:</strong> Synchronizing the supported data only after you opt in.</li>
               <li>
                 <strong style={{ color: 'var(--text-primary)' }}>App improvement:</strong> Analyzing crash reports and
-                debug analytics to identify and fix bugs, improve performance, and enhance user experience.
+                diagnostics to identify and fix bugs, improve performance, and understand feature reliability.
               </li>
               <li>
                 <strong style={{ color: 'var(--text-primary)' }}>Service delivery:</strong> Processing subscription
-                purchases and managing access to premium features (when available).
+                status, restoring purchases, and managing access to Pro features.
               </li>
             </ul>
           </section>
@@ -201,21 +204,28 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
               5. Data Sharing and Third Parties
             </h2>
             <p>
-              We do not sell, trade, or rent your personal data. We may share limited anonymized data with the
-              following third-party services:
+              We do not sell or rent your personal data. The following processors or independent store providers may
+              receive the data needed for their role:
             </p>
             <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
               <li>
-                <strong style={{ color: 'var(--text-primary)' }}>Crash and analytics providers:</strong> To receive
-                anonymized crash reports and usage analytics for app improvement.
+                <strong style={{ color: 'var(--text-primary)' }}>Supabase:</strong> Authentication and optional Pro sync.
               </li>
               <li>
-                <strong style={{ color: 'var(--text-primary)' }}>RevenueCat</strong> (future): To manage subscription
-                purchases and entitlements.
+                <strong style={{ color: 'var(--text-primary)' }}>RevenueCat:</strong> Subscription status, entitlements,
+                restore, and account-bound subscription diagnostics.
               </li>
               <li>
-                <strong style={{ color: 'var(--text-primary)' }}>Google Play:</strong> For app distribution,
-                updates, and purchase processing.
+                <strong style={{ color: 'var(--text-primary)' }}>Firebase and Kotzilla:</strong> Diagnostics while your
+                Diagnostics preference is enabled.
+              </li>
+              <li>
+                <strong style={{ color: 'var(--text-primary)' }}>Apple and Google:</strong> Sign-in, distribution,
+                purchases, subscription management, and refunds under their own terms.
+              </li>
+              <li>
+                <strong style={{ color: 'var(--text-primary)' }}>Formspree and PostHog:</strong> Website contact and
+                analytics when those services are configured.
               </li>
             </ul>
           </section>
@@ -240,8 +250,10 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
               </li>
               <li>
                 <strong style={{ color: 'var(--text-primary)' }}>Right to erasure:</strong> You can request deletion of
-                your personal data. Since most data is stored locally, you can delete it by clearing the app data or
-                uninstalling the App.
+                your account-bound personal data through the App or the public{' '}
+                <Link to="/mindshift/delete-account" className="text-teal-500 hover:text-teal-400 underline underline-offset-2">
+                  account-deletion page
+                </Link>. Device-only data must be removed separately on each device.
               </li>
               <li>
                 <strong style={{ color: 'var(--text-primary)' }}>Right to restrict processing:</strong> You can request
@@ -276,9 +288,10 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
               7. Data Retention
             </h2>
             <p>
-              Locally stored data remains on your device until you clear the app data or uninstall MindShift.
-              Anonymized crash and analytics data is retained only for as long as necessary to fulfill the purposes
-              described in this policy, typically no longer than 24 months.
+              Device-local data remains until you remove it in the App, clear app data, or uninstall MindShift.
+              Account and synced data remains while your account exists and is removed through account deletion.
+              RevenueCat customer data is deleted as part of that flow, but store transaction records and diagnostics
+              remain subject to Apple, Google, Firebase, Kotzilla, and applicable legal retention obligations.
             </p>
           </section>
 
@@ -288,10 +301,9 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
               8. Data Security
             </h2>
             <p>
-              We take appropriate technical and organizational measures to protect your data. Since most of your data
-              is stored locally on your device, it benefits from your device's built-in security features (e.g.,
-              device encryption, screen lock). Anonymized analytics data is transmitted using industry-standard
-              encryption (TLS/SSL).
+              We use device security controls, authenticated sessions, account ownership checks, row-level access
+              controls, and encrypted network transport. No service-role, Apple, or RevenueCat secret is placed in the
+              App or this website. No system can be guaranteed completely secure.
             </p>
           </section>
 
@@ -313,53 +325,43 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
               10. International Data Transfers
             </h2>
             <p>
-              Anonymized crash and analytics data may be processed in countries outside the EEA. Where such transfers
-              occur, we ensure appropriate safeguards are in place, such as Standard Contractual Clauses (SCCs)
-              approved by the European Commission, to protect your data in accordance with GDPR requirements.
+              Our service providers may process data outside your country or the EEA. Where applicable, transfers are
+              handled under the provider's contractual and legal transfer safeguards.
             </p>
           </section>
 
-          {/* Google Play */}
+          {/* App stores */}
           <section>
             <h2 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>
-              11. Google Play Store
+              11. App stores
             </h2>
             <p>
-              MindShift is distributed through the{' '}
-              <a
-                href="https://play.google.com/store"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-500 hover:text-teal-400 underline underline-offset-2"
-              >
-                Google Play Store
-              </a>
-              . By downloading the App, you also agree to Google Play's{' '}
-              <a
-                href="https://play.google.com/intl/en_us/about/play-terms/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-500 hover:text-teal-400 underline underline-offset-2"
-              >
-                Terms of Service
-              </a>
-              . Google may collect certain data as described in{' '}
-              <a
-                href="https://policies.google.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-500 hover:text-teal-400 underline underline-offset-2"
-              >
-                Google's Privacy Policy
-              </a>
-              .
+              Apple and Google process store accounts, downloads, purchases, receipts, refunds, and subscriptions
+              under their own terms and privacy policies. Deleting MindShift does not itself cancel a store
+              subscription.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>
+              12. Account deletion
+            </h2>
+            <p>
+              You can permanently delete your account in MindShift or start a support-assisted request on the{' '}
+              <Link to="/mindshift/delete-account" className="text-teal-500 hover:text-teal-400 underline underline-offset-2">
+              public deletion page
+              </Link>. The in-app flow authenticates directly; support verifies ownership before fulfilling a web
+              request. Successful deletion removes the Supabase account, account-bound synced rows, the server
+              entitlement snapshot, and the RevenueCat customer record. It does not cancel a store subscription or
+              remotely erase device-only data. Apple-linked accounts may also need to stop using MindShift in Sign in
+              with Apple settings if automatic revocation is unavailable.
             </p>
           </section>
 
           {/* Changes */}
           <section>
             <h2 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>
-              12. Changes to This Privacy Policy
+              13. Changes to This Privacy Policy
             </h2>
             <p>
               We may update this Privacy Policy from time to time to reflect changes in our practices or legal
@@ -372,7 +374,7 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
           {/* Contact */}
           <section>
             <h2 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>
-              13. Contact Us
+              14. Contact Us
             </h2>
             <p>
               If you have any questions or concerns about this Privacy Policy, or if you wish to exercise your GDPR
@@ -395,13 +397,20 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
           <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
             &copy; {year} MindShift. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
             <Link
               to="/mindshift/terms"
               className="text-xs hover:text-teal-500 transition-colors duration-200"
               style={{ color: 'var(--text-muted)' }}
             >
               Terms &amp; Conditions
+            </Link>
+            <Link
+              to="/mindshift/delete-account"
+              className="text-xs hover:text-teal-500 transition-colors duration-200"
+              style={{ color: 'var(--text-muted)' }}
+            >
+              Delete account
             </Link>
             <Link
               to="/mindshift"
