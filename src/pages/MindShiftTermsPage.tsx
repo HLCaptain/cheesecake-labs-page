@@ -10,7 +10,7 @@ export default function MindShiftTermsPage({ theme, onToggleTheme }: MindShiftTe
   useEffect(() => {
     document.title = 'Terms & Conditions — MindShift'
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
-    if (link) link.href = '/favicon-mindshift.svg'
+    if (link) link.href = `${import.meta.env.BASE_URL}favicon-mindshift.svg`
   }, [])
 
   const year = new Date().getFullYear()

@@ -1,32 +1,81 @@
-name: Deploy to GitHub Pages
+name: Website CI and Deploy
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: website-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  verify:
+    name: Build and browser tests
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build
         run: npm run build
+
+      - name: Install Chromium
+        run: npm run test:e2e:install
+
+      - name: Run browser tests
+        run: npm run test:e2e
+
+      - name: Upload verified site
+        uses: actions/upload-artifact@v7
+        with:
+          name: website-${{ github.sha }}
+          path: dist
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload browser report on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report-${{ github.sha }}
+          path: playwright-report
+          if-no-files-found: ignore
+          retention-days: 7
+
+  deploy:
+    name: Deploy verified site
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Download verified site
+        uses: actions/download-artifact@v8
+        with:
+          name: website-${{ github.sha }}
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

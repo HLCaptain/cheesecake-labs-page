@@ -16,7 +16,7 @@ export default function MindShiftPage({ theme, onToggleTheme }: MindShiftPagePro
   useEffect(() => {
     document.title = 'MindShift — Digital Wellbeing'
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
-    if (link) link.href = '/favicon-mindshift.svg'
+    if (link) link.href = `${import.meta.env.BASE_URL}favicon-mindshift.svg`
   }, [])
 
   return (

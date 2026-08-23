@@ -1,17 +1,18 @@
-const { test, expect } = require('@playwright/test')
+import { test, expect } from '@playwright/test'
 
 const pages = [
-  { path: '/cheesecake', brand: 'CheeseCake Labs — Home' },
-  { path: '/mindshift', brand: 'MindShift — Home' },
+  { path: '/#/cheesecake', brand: 'CheeseCake Labs — Home' },
+  { path: '/#/mindshift', brand: 'MindShift — Home' },
 ]
 
 for (const pageDef of pages) {
   test(`${pageDef.path} keeps mobile header controls reachable without overlap`, async ({ page }) => {
     await page.goto(pageDef.path)
 
-    const brand = page.getByLabel(pageDef.brand)
-    const themeToggle = page.getByRole('button', { name: /switch to (light|dark) mode/i })
-    const menuToggle = page.getByRole('button', { name: /open menu/i })
+    const navigation = page.getByRole('navigation')
+    const brand = navigation.getByRole('link', { name: pageDef.brand })
+    const themeToggle = navigation.getByRole('button', { name: /switch to (light|dark) mode/i })
+    const menuToggle = navigation.getByRole('button', { name: /open menu/i })
 
     await expect(brand).toBeVisible()
     await expect(themeToggle).toBeVisible()
