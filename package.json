@@ -12,10 +12,10 @@
     "test:e2e:install": "playwright install --with-deps chromium"
   },
   "dependencies": {
-    "posthog-js": "^1.352.0",
+    "posthog-js": "^1.379.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^7.13.0"
+    "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
     "@playwright/test": "1.62.1",
