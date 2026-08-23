@@ -6,6 +6,7 @@ import HowItWorks from '../components/HowItWorks'
 import SocialProof from '../components/SocialProof'
 import ReachOut from '../components/ReachOut'
 import Footer from '../components/Footer'
+import { setRouteMetadata } from '../routeMetadata'
 
 interface CheeseCakePageProps {
   theme: 'dark' | 'light'
@@ -14,9 +15,11 @@ interface CheeseCakePageProps {
 
 export default function CheeseCakePage({ theme, onToggleTheme }: CheeseCakePageProps) {
   useEffect(() => {
-    document.title = 'CheeseCake Labs — Next-Gen AI Development'
-    const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
-    if (link) link.href = `${import.meta.env.BASE_URL}favicon.svg`
+    setRouteMetadata({
+      title: 'CheeseCake Labs — Next-Gen AI Development',
+      description: 'CheeseCake Labs pairs AI agents with senior developers to build polished frontends, apps, and practical AI workflows.',
+      favicon: `${import.meta.env.BASE_URL}favicon.svg`,
+    })
   }, [])
 
   return (

@@ -6,6 +6,7 @@ import MSHowItWorks from '../components/mindshift/MSHowItWorks'
 import MSSocialProof from '../components/mindshift/MSSocialProof'
 import MSReachOut from '../components/mindshift/MSReachOut'
 import MSFooter from '../components/mindshift/MSFooter'
+import { setRouteMetadata } from '../routeMetadata'
 
 interface MindShiftPageProps {
   theme: 'dark' | 'light'
@@ -14,9 +15,11 @@ interface MindShiftPageProps {
 
 export default function MindShiftPage({ theme, onToggleTheme }: MindShiftPageProps) {
   useEffect(() => {
-    document.title = 'MindShift — Digital Wellbeing'
-    const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
-    if (link) link.href = `${import.meta.env.BASE_URL}favicon-mindshift.svg`
+    setRouteMetadata({
+      title: 'MindShift — Digital Wellbeing',
+      description: 'MindShift helps you interrupt distracting app use and replace it with intentional activities that fit your routine.',
+      favicon: `${import.meta.env.BASE_URL}favicon-mindshift.svg`,
+    })
   }, [])
 
   return (

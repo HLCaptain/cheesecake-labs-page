@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "tsc --noEmit",
-    "test:e2e": "playwright test",
+    "test:e2e": "npm run test:e2e:build && playwright test",
+    "test:e2e:build": "VITE_FORMSPREE_MINDSHIFT_ID=test-form npm run build -- --outDir dist-e2e-configured && VITE_FORMSPREE_MINDSHIFT_ID= npm run build -- --outDir dist-e2e-missing",
     "test:e2e:install": "playwright install --with-deps chromium"
   },
   "dependencies": {
