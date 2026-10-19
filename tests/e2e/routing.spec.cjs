@@ -35,7 +35,8 @@ test('navigation stays same-document through back and forward', async ({ page })
   await page.goto(entry('/mindshift'))
   await expect(page.locator('h1').first()).toBeVisible()
   await page.evaluate(() => { window.__routingMarker = true })
-  await page.locator(`a[href="${historyMode ? '/cheesecake' : '#/cheesecake'}"]`).first().click()
+  await page.getByRole('button', { name: 'Open menu', exact: true }).click()
+  await page.getByRole('banner').getByRole('link', { name: /CheeseCake Labs/ }).click()
   await page.waitForURL(url => historyMode ? url.pathname === '/cheesecake' : url.hash === '#/cheesecake')
   await page.goBack()
   await page.waitForURL(url => historyMode ? url.pathname === '/mindshift' : url.hash === '#/mindshift')
@@ -54,7 +55,8 @@ test('unavailable storage does not prevent rendering', async ({ page }) => {
 
 test('legacy external targets never navigate off-site', async ({ page, baseURL }) => {
   await page.goto('/#//example.invalid/mindshift')
-  await expect(page.locator('h1').first()).toBeVisible()
+  // An unmatched hash has no route heading; wait for App's theme effect instead.
+  await expect(page.locator('html')).toHaveAttribute('data-theme', /^(dark|light)$/)
   expect(new URL(page.url()).origin).toBe(new URL(baseURL).origin)
 })
 
