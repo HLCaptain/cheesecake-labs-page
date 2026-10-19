@@ -2,7 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { PostHogProvider } from 'posthog-js/react'
 import App from './App'
+import { resolveLegacyHashRoute } from './routing'
 import './index.css'
+
+if (import.meta.env.VITE_ROUTER_MODE === 'history') {
+  const target = resolveLegacyHashRoute(window.location.hash, window.location.search)
+  if (target !== null) window.history.replaceState(window.history.state, '', target)
+}
 
 const posthogKey = import.meta.env.VITE_PUBLIC_POSTHOG_KEY
 const posthogHost = import.meta.env.VITE_PUBLIC_POSTHOG_HOST
