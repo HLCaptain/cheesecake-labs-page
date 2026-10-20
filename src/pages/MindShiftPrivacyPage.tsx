@@ -10,7 +10,7 @@ export default function MindShiftPrivacyPage({ theme, onToggleTheme }: MindShift
   useEffect(() => {
     document.title = 'Privacy Policy — MindShift'
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
-    if (link) link.href = '/favicon-mindshift.svg'
+    if (link) link.href = `${import.meta.env.BASE_URL}favicon-mindshift.svg`
   }, [])
 
   const year = new Date().getFullYear()
